@@ -247,7 +247,7 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
           method="POST"
           className="space-y-4"
         >
-          <input type="hidden" name="_next" value="https://jyothsna-portfolio.vercel.app" />
+          <input type="hidden" name="_next" value="https://jyothsna-portfolio-mu.vercel.app" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_subject" value="New Resume Request!" />
           <input type="hidden" name="_template" value="table" />
