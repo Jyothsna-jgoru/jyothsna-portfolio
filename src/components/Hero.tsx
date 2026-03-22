@@ -73,10 +73,10 @@ export default function Hero({ onProjectsClick }: HeroProps) {
             <img
               src={profile}
               alt="Jyothsna Devi Goru"
-              className="w-72 h-72 md:w-80 md:h-80 mx-auto rounded-2xl object-cover mb-6"
+              className="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-2xl object-cover mb-6"
             />
 
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Jyothsna Devi Goru
             </h2>
 
@@ -180,27 +180,27 @@ export default function Hero({ onProjectsClick }: HeroProps) {
 
           {/* RIGHT SIDE */}
           <div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Building Scalable Systems into{" "}
               <span className="text-purple-500">Reality</span>
             </h1>
 
-            <p className="text-gray-400 mt-6 text-lg md:text-xl">
+            <p className="text-gray-400 mt-6 text-base md:text-lg">
               Backend-focused engineer specializing in distributed systems,
               cloud-native architecture, and intelligent infrastructure.
             </p>
 
             <div className="flex gap-16 mt-10">
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold">2+</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">2+</h3>
                 <p className="text-gray-500 text-sm">YEARS EXPERIENCE</p>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold">7</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">7</h3>
                 <p className="text-gray-500 text-sm">MAJOR SYSTEMS</p>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold">2</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">2</h3>
                 <p className="text-gray-500 text-sm">CLOUD PLATFORM</p>
               </div>
             </div>
@@ -208,14 +208,14 @@ export default function Hero({ onProjectsClick }: HeroProps) {
             <div className="flex gap-6 mt-10">
               <button
                 onClick={() => setShowResume(true)}
-                className="px-8 py-4 text-lg bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg font-medium hover:scale-105 transition"
+                className="px-6 py-3 text-base bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg font-medium hover:scale-105 transition"
               >
                 Resume
               </button>
 
               <button
                 onClick={onProjectsClick}
-                className="px-8 py-4 text-lg border border-gray-600 rounded-lg hover:bg-gray-800 transition"
+                className="px-6 py-3 text-base border border-gray-600 rounded-lg hover:bg-gray-800 transition"
               >
                 My Work →
               </button>
