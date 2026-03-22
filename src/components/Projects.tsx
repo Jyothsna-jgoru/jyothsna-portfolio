@@ -1246,6 +1246,14 @@ export default function Projects({ onBack }: ProjectsProps) {
   return (
     <div className="min-h-screen bg-[#0B0F19] text-white px-6 md:px-8 py-20 overflow-x-hidden relative">
 
+      {/* BACK TO TOP */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        style={{ position: "fixed", bottom: "30px", right: "30px", zIndex: 9999, width: "50px", height: "50px", borderRadius: "50%", backgroundColor: "#a855f7", color: "white", fontSize: "20px", border: "none", cursor: "pointer" }}
+      >
+        ↑
+      </button>
+
       {/* ===== BACKGROUND DESIGN ===== */}
       {/* Grid pattern */}
       <div className="fixed inset-0 pointer-events-none z-0" style={{
@@ -1588,6 +1596,7 @@ export default function Projects({ onBack }: ProjectsProps) {
             <CertificateCarousel certs={certs} />
           </div>
         </section>
+
       </div>
     </div>
   );
