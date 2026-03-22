@@ -162,7 +162,7 @@ export default function Hero({ onProjectsClick }: HeroProps) {
               </a>
 
               <a
-                href="https://leetcode.com/"
+                href="https://leetcode.com/u/Jyothsna_G/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-110 transition"
@@ -247,6 +247,10 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
           method="POST"
           className="space-y-4"
         >
+          <input type="hidden" name="_next" value="https://jyothsna-portfolio.vercel.app" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New Resume Request!" />
+          <input type="hidden" name="_template" value="table" />
           <input
             type="text"
             name="name"
@@ -260,13 +264,6 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
             name="email"
             placeholder="Your Email"
             required
-            className="w-full p-3 rounded-lg bg-[#1F2937] border border-gray-600"
-          />
-
-          <input
-            type="text"
-            name="company"
-            placeholder="Company"
             className="w-full p-3 rounded-lg bg-[#1F2937] border border-gray-600"
           />
 

@@ -1411,7 +1411,7 @@ export default function Projects({ onBack }: ProjectsProps) {
           <AnimatedBlock direction="bottom">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               About{" "}
-              <span className="text-purple-500">Systems & Intelligence</span>
+              <span className="text-purple-500">Me</span>
             </h1>
           </AnimatedBlock>
 
