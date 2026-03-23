@@ -24,7 +24,8 @@ import taskflowImg from "../assets/taskflow.png";
 import mediaPipelineImg from "../assets/mediaPipeline.png";
 import kvStoreImg from "../assets/kvStore.png";
 import sqlPlatformImg from "../assets/sqlPlatform.png";
-import profileImg from "../assets/profile.jpg";
+import profileImg from "../assets/Profile.png";
+import citibikeImg from "../assets/citibike.png";
 interface ProjectsProps {
   onBack: () => void;
 }
@@ -658,6 +659,25 @@ function XGBoostIcon() {
     </svg>
   );
 }
+function KafkaIcon() {
+  return (
+    <svg viewBox="0 0 48 48" className="w-10 h-10 md:w-12 md:h-12">
+      <circle cx="24" cy="24" r="5" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="24" cy="10" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="36" cy="17" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="36" cy="31" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="24" cy="38" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="12" cy="31" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <circle cx="12" cy="17" r="4" fill="none" stroke="#231F20" strokeWidth="2" />
+      <line x1="24" y1="19" x2="24" y2="14" stroke="#4FC3F7" strokeWidth="1.5" />
+      <line x1="28" y1="21" x2="33" y2="18" stroke="#4FC3F7" strokeWidth="1.5" />
+      <line x1="28" y1="27" x2="33" y2="30" stroke="#4FC3F7" strokeWidth="1.5" />
+      <line x1="24" y1="29" x2="24" y2="34" stroke="#4FC3F7" strokeWidth="1.5" />
+      <line x1="20" y1="27" x2="15" y2="30" stroke="#4FC3F7" strokeWidth="1.5" />
+      <line x1="20" y1="21" x2="15" y2="18" stroke="#4FC3F7" strokeWidth="1.5" />
+    </svg>
+  );
+}
 
 /* ================= ICON MAPPING ================= */
 
@@ -701,6 +721,7 @@ const customIconMap: Record<string, React.ReactNode> = {
   "Incident Response & On-Call": <IncidentIcon />,
   "Root Cause Analysis (RCA)": <RcaIcon />,
   "SDLC": <SdlcIcon />,
+  "Apache Kafka": <KafkaIcon />,
   "Agile Collaboration": <AgileIcon />,
 };
 
@@ -797,7 +818,7 @@ const allSkills: { name: string; icon?: string }[] = [
   { name: "Redis", icon: "redis/redis-original" },
   { name: "DynamoDB", icon: "dynamodb/dynamodb-original" },
   { name: "Snowflake", icon: "snowflake/snowflake-original" },
-  { name: "Apache Kafka", icon: "apachekafka/apachekafka-original" },
+  { name: "Apache Kafka" },
   { name: "Microsoft Azure", icon: "azure/azure-original" },
   { name: "AWS", icon: "amazonwebservices/amazonwebservices-plain-wordmark" },
   { name: "Kubernetes", icon: "kubernetes/kubernetes-original" },
@@ -1160,6 +1181,25 @@ export default function Projects({ onBack }: ProjectsProps) {
         "Event-Driven",
         "Serverless",
         "Observability",
+      ],
+    },
+
+    {
+      title: "Citi Bike Demand Forecasting Pipeline",
+      image: citibikeImg,
+      description:
+        "Built an end-to-end machine learning pipeline for forecasting Citi Bike trip demand using 2024 Jersey City trip data. The system automated raw data ingestion, cleaning, top-station selection, and 28 day lag-based feature engineering for time-series modeling. Integrated Hopsworks for feature storage, model registration, and batch inference workflows. Added GitHub Actions for automated pipeline execution and Streamlit dashboards for prediction visualization and model monitoring. This project combined data engineering, MLOps, and forecasting to deliver a production-style mobility analytics system.",
+      skills: [
+        "Python",
+        "Pandas",
+        "LightGBM",
+        "Hopsworks",
+        "Streamlit",
+        "GitHub Actions",
+        "SQL",
+        "Feature Engineering",
+        "Time Series",
+        "Model Registry",
       ],
     },
     {
