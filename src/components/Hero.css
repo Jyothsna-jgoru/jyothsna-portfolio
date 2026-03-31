@@ -1,7 +1,8 @@
 .hero-section {
   min-height: 100vh;
   padding: 60px 20px;
-  background: radial-gradient(circle at top, #0b1736, #020817 65%);
+  background:
+    radial-gradient(circle at top, #2f5baf 0%, #18346c 35%, #0b1736 65%, #050b16 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +15,13 @@
   max-width: 95%;
   padding: 36px;
   border-radius: 28px;
-  background: rgba(12, 18, 40, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(32, 48, 92, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(14px);
+    0 25px 60px rgba(0, 0, 0, 0.38),
+    0 0 35px rgba(96, 165, 250, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
   transform-style: preserve-3d;
   transition: transform 0.18s ease, box-shadow 0.25s ease;
   position: relative;
@@ -27,16 +29,17 @@
 
 .hero-card:hover {
   box-shadow:
-    0 35px 90px rgba(0, 0, 0, 0.55),
-    0 0 35px rgba(71, 118, 255, 0.18);
+    0 35px 90px rgba(0, 0, 0, 0.45),
+    0 0 55px rgba(96, 165, 250, 0.28);
 }
 
 .hero-glow {
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  background: radial-gradient(circle at 20% 20%, rgba(0, 183, 255, 0.12), transparent 35%),
-              radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.12), transparent 35%);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.24), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.2), transparent 35%);
   pointer-events: none;
 }
 
@@ -61,12 +64,15 @@
   height: 250px;
   object-fit: cover;
   border-radius: 22px;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.32),
+    0 0 24px rgba(96, 165, 250, 0.12);
 }
 
 .hero-name {
   text-align: center;
-  color: white;
+  color: #ffffff;
   font-size: 2.4rem;
   font-weight: 700;
   margin: 0;
@@ -74,7 +80,7 @@
 
 .hero-role {
   text-align: center;
-  color: #b8bfd1;
+  color: #d8e2f8;
   font-size: 1.2rem;
   margin-top: 10px;
   margin-bottom: 34px;
@@ -103,12 +109,12 @@
 .contact-label {
   margin: 0;
   font-size: 0.85rem;
-  color: #7f879c;
+  color: #b8c6e6;
 }
 
 .contact-value {
   margin: 4px 0 0;
-  color: white;
+  color: #ffffff;
   font-size: 1.1rem;
   font-weight: 600;
 }
@@ -129,16 +135,18 @@
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   transform-style: preserve-3d;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .social-btn:hover {
   transform: translateY(-6px) rotateX(12deg) rotateY(-12deg) scale(1.05);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.28),
+    0 0 25px rgba(96, 165, 250, 0.2);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .stats-wrapper {
@@ -154,9 +162,11 @@
   padding: 24px 20px;
   border-radius: 22px;
   position: relative;
-  background: rgba(15, 20, 48, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  background: rgba(40, 58, 108, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.24),
+    0 0 24px rgba(96, 165, 250, 0.12);
   transform-style: preserve-3d;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -164,7 +174,9 @@
 
 .stat-card:hover {
   transform: rotateX(12deg) rotateY(-10deg) translateY(-8px);
-  box-shadow: 0 26px 45px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 26px 45px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(96, 165, 250, 0.16);
 }
 
 .stat-card h2 {
@@ -175,7 +187,7 @@
 
 .stat-card p {
   margin-top: 10px;
-  color: #b4bdd4;
+  color: #d8e2f8;
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -188,12 +200,12 @@
   width: 240px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(10, 16, 35, 0.95);
-  color: #e8ecf8;
+  background: rgba(28, 40, 78, 0.98);
+  color: #f4f7ff;
   font-size: 0.9rem;
   line-height: 1.45;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 20;
   animation: fadeUp 0.22s ease;
 }
