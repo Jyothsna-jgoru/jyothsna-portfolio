@@ -1096,7 +1096,7 @@ export default function Projects({ onBack }: ProjectsProps) {
   duration: "Mar 2026 – Present",
   location: "United States · Remote",
   description:
-    "Currently building an enterprise AI platform for insurance and healthcare workflows using NLP, chatbot-assisted intake, fraud screening, and workflow automation. Designed it to streamline case processing and improve operational visibility with analytics dashboards.",
+    "Currently building an enterprise AI platform for insurance and healthcare workflows that uses NLP, chatbot-assisted intake, fraud screening, and workflow automation to streamline case processing and improve operational visibility with analytics dashboards.",
 },
     {
       company: "Zomato",
