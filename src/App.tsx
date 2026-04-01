@@ -4,6 +4,25 @@ import Projects from "./components/Projects";
 
 export default function App() {
   const [showProjects, setShowProjects] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
+
+  const goToProjects = () => {
+    setTransitioning(true);
+    setTimeout(() => {
+      setShowProjects(true);
+      setTransitioning(false);
+      window.scrollTo(0, 0);
+    }, 500);
+  };
+
+  const goToHome = () => {
+    setTransitioning(true);
+    setTimeout(() => {
+      setShowProjects(false);
+      setTransitioning(false);
+      window.scrollTo(0, 0);
+    }, 500);
+  };
 
   return (
     <div className="bg-[#020617] text-white min-h-screen">
@@ -34,17 +53,21 @@ export default function App() {
         </button>
       )}
 
-      {!showProjects && (
-        <Hero
-          onProjectsClick={() => setShowProjects(true)}
-        />
-      )}
+      <div
+        style={{
+          opacity: transitioning ? 0 : 1,
+          transform: transitioning ? "scale(0.98)" : "scale(1)",
+          transition: "opacity 0.5s ease, transform 0.5s ease",
+        }}
+      >
+        {!showProjects && (
+          <Hero onProjectsClick={goToProjects} />
+        )}
 
-      {showProjects && (
-        <Projects
-          onBack={() => setShowProjects(false)}
-        />
-      )}
+        {showProjects && (
+          <Projects onBack={goToHome} />
+        )}
+      </div>
 
     </div>
   );
