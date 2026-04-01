@@ -1168,7 +1168,7 @@ function ProjectCard({
 export default function Projects({ onBack }: ProjectsProps) {
   const experiences = [
     {
-      company: "BizPRules",
+      company: "BIZPRULES",
       logo: bizprulesLogo,
       title: "Software Engineer Intern",
       duration: "Mar 2026 – Present",
@@ -1380,8 +1380,8 @@ export default function Projects({ onBack }: ProjectsProps) {
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px)
+            linear-gradient(rgba(168,85,247,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(168,85,247,0.04) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -1391,31 +1391,27 @@ export default function Projects({ onBack }: ProjectsProps) {
       <MouseGlow />
 
       {/* Floating gradient orbs */}
-      <div
-        className="fixed top-[10%] left-[5%] w-72 h-72 rounded-full pointer-events-none z-0"
+      <div className="fixed top-[10%] left-[5%] w-[400px] md:w-[500px] h-[400px] md:h-[500px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(0,242,254,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,242,254,0.12) 0%, transparent 70%)",
           animation: "orbFloat1 12s ease-in-out infinite",
         }}
       />
-      <div
-        className="fixed top-[40%] right-[3%] w-96 h-96 rounded-full pointer-events-none z-0"
+      <div className="fixed top-[40%] right-[3%] w-[450px] md:w-[600px] h-[450px] md:h-[600px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%)",
           animation: "orbFloat2 15s ease-in-out infinite",
         }}
       />
-      <div
-        className="fixed bottom-[10%] left-[10%] w-80 h-80 rounded-full pointer-events-none z-0"
+      <div className="fixed bottom-[10%] left-[10%] w-[400px] md:w-[550px] h-[400px] md:h-[550px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(255,0,128,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,0,128,0.10) 0%, transparent 70%)",
           animation: "orbFloat3 18s ease-in-out infinite",
         }}
       />
-      <div
-        className="fixed top-[60%] left-[50%] w-64 h-64 rounded-full pointer-events-none z-0"
+      <div className="fixed top-[60%] left-[50%] w-[350px] md:w-[450px] h-[350px] md:h-[450px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(0,242,254,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)",
           animation: "orbFloat1 20s ease-in-out infinite reverse",
         }}
       />
