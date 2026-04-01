@@ -214,7 +214,7 @@ export default function Hero({ onProjectsClick }: HeroProps) {
             </p>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-              <TypingText texts={["Engineering Intelligence at Scale", "Building Distributed Systems", "Designing Cloud-Native Solutions", "Applying AI to Real Problems"]} />
+              <TypingText texts={["Building Scalable Systems", "Designing Real-Time Applications", "Working on Cloud and Distributed Systems", "Applying AI to Practical Problems"]} />
             </h1>
 
             <p className="text-gray-400 mt-4 md:mt-6 text-sm md:text-base lg:text-lg">
