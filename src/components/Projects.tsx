@@ -27,6 +27,7 @@ import kvStoreImg from "../assets/kvStore.png";
 import sqlPlatformImg from "../assets/sqlPlatform.png";
 import profileImg from "../assets/Profile.png";
 import citibikeImg from "../assets/citibike.png";
+
 interface ProjectsProps {
   onBack: () => void;
 }
@@ -148,6 +149,81 @@ function GlowDivider() {
     <AnimatedBlock direction="fade" className="my-24 flex justify-center">
       <div className="w-48 h-[2px] bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-60" />
     </AnimatedBlock>
+  );
+}
+
+/* ================= HERO STYLE PARTICLES ================= */
+
+function Particles() {
+  const particles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    duration: Math.random() * 15 + 10,
+    delay: Math.random() * 10,
+    opacity: Math.random() * 0.3 + 0.1,
+    color: ["#a855f7", "#00f2fe", "#ff0080", "#6366f1"][Math.floor(Math.random() * 4)],
+  }));
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            backgroundColor: p.color,
+            opacity: p.opacity,
+            animation: `particleFloat${p.id % 3} ${p.duration}s ease-in-out ${p.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function MouseGlow() {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      setPos({ x: e.clientX, y: e.clientY });
+      setVisible(true);
+    };
+
+    const handleLeave = () => setVisible(false);
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mouseleave", handleLeave);
+    };
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div
+      className="pointer-events-none fixed z-0"
+      style={{
+        left: pos.x - 150,
+        top: pos.y - 150,
+        width: 300,
+        height: 300,
+        borderRadius: "50%",
+        background:
+          "radial-gradient(circle, rgba(168,85,247,0.12) 0%, rgba(99,102,241,0.06) 30%, transparent 70%)",
+        transition: "left 0.15s ease-out, top 0.15s ease-out",
+      }}
+    />
   );
 }
 
@@ -660,6 +736,7 @@ function XGBoostIcon() {
     </svg>
   );
 }
+
 function KafkaIcon() {
   return (
     <svg viewBox="0 0 48 48" className="w-10 h-10 md:w-12 md:h-12">
@@ -1085,19 +1162,20 @@ function ProjectCard({
     </StaggerItem>
   );
 }
+
 /* ================= MAIN COMPONENT ================= */
 
 export default function Projects({ onBack }: ProjectsProps) {
   const experiences = [
     {
-  company: "BizPRules",
-  logo: bizprulesLogo,
-  title: "Software Engineer Intern",
-  duration: "Mar 2026 – Present",
-  location: "United States · Remote",
-  description:
-    "Currently building an enterprise AI platform for insurance and healthcare workflows that uses NLP, chatbot-assisted intake, fraud screening, and workflow automation to streamline case processing and improve operational visibility with analytics dashboards.",
-},
+      company: "BizPRules",
+      logo: bizprulesLogo,
+      title: "Software Engineer Intern",
+      duration: "Mar 2026 – Present",
+      location: "United States · Remote",
+      description:
+        "Currently building an enterprise AI platform for insurance and healthcare workflows that uses NLP, chatbot-assisted intake, fraud screening, and workflow automation to streamline case processing and improve operational visibility with analytics dashboards.",
+    },
     {
       company: "Zomato",
       logo: zomatoLogo,
@@ -1193,7 +1271,6 @@ export default function Projects({ onBack }: ProjectsProps) {
         "Observability",
       ],
     },
-
     {
       title: "Citi Bike Demand Forecasting Pipeline",
       image: citibikeImg,
@@ -1293,47 +1370,50 @@ export default function Projects({ onBack }: ProjectsProps) {
     { title: "Oracle Database Certification", img: oracleCert },
   ];
 
-  return (
-    <div className="min-h-screen bg-[#0B0F19] text-white px-6 md:px-8 py-20 overflow-x-hidden relative">
-
-      {/* BACK TO TOP */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        style={{ position: "fixed", bottom: "30px", right: "30px", zIndex: 9999, width: "50px", height: "50px", borderRadius: "50%", backgroundColor: "#a855f7", color: "white", fontSize: "20px", border: "none", cursor: "pointer" }}
-      >
-        ↑
-      </button>
+    return (
+  <div className="min-h-screen bg-[#0B0F19] text-white px-6 md:px-8 py-20 overflow-x-hidden relative">
+      
 
       {/* ===== BACKGROUND DESIGN ===== */}
       {/* Grid pattern */}
-      <div className="fixed inset-0 pointer-events-none z-0" style={{
-        backgroundImage: `
-          linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px)
-        `,
-        backgroundSize: "60px 60px",
-      }} />
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <Particles />
+      <MouseGlow />
 
       {/* Floating gradient orbs */}
-      <div className="fixed top-[10%] left-[5%] w-72 h-72 rounded-full pointer-events-none z-0"
+      <div
+        className="fixed top-[10%] left-[5%] w-72 h-72 rounded-full pointer-events-none z-0"
         style={{
           background: "radial-gradient(circle, rgba(0,242,254,0.08) 0%, transparent 70%)",
           animation: "orbFloat1 12s ease-in-out infinite",
         }}
       />
-      <div className="fixed top-[40%] right-[3%] w-96 h-96 rounded-full pointer-events-none z-0"
+      <div
+        className="fixed top-[40%] right-[3%] w-96 h-96 rounded-full pointer-events-none z-0"
         style={{
           background: "radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%)",
           animation: "orbFloat2 15s ease-in-out infinite",
         }}
       />
-      <div className="fixed bottom-[10%] left-[10%] w-80 h-80 rounded-full pointer-events-none z-0"
+      <div
+        className="fixed bottom-[10%] left-[10%] w-80 h-80 rounded-full pointer-events-none z-0"
         style={{
           background: "radial-gradient(circle, rgba(255,0,128,0.06) 0%, transparent 70%)",
           animation: "orbFloat3 18s ease-in-out infinite",
         }}
       />
-      <div className="fixed top-[60%] left-[50%] w-64 h-64 rounded-full pointer-events-none z-0"
+      <div
+        className="fixed top-[60%] left-[50%] w-64 h-64 rounded-full pointer-events-none z-0"
         style={{
           background: "radial-gradient(circle, rgba(0,242,254,0.05) 0%, transparent 70%)",
           animation: "orbFloat1 20s ease-in-out infinite reverse",
@@ -1369,6 +1449,29 @@ export default function Projects({ onBack }: ProjectsProps) {
           <div className="w-3 h-3 rounded-full border border-purple-500" style={{ animation: "spinSlow 5s linear infinite" }} />
         </div>
       </div>
+
+      {/* Corner brackets */}
+      <div className="fixed top-4 left-4 pointer-events-none z-0 opacity-30">
+        <svg width="60" height="60">
+          <path d="M0 30 L0 0 L30 0" fill="none" stroke="#00f2fe" strokeWidth="2" />
+        </svg>
+      </div>
+      <div className="fixed top-4 right-4 pointer-events-none z-0 opacity-30">
+        <svg width="60" height="60">
+          <path d="M30 0 L60 0 L60 30" fill="none" stroke="#ff0080" strokeWidth="2" />
+        </svg>
+      </div>
+      <div className="fixed bottom-4 left-4 pointer-events-none z-0 opacity-30">
+        <svg width="60" height="60">
+          <path d="M0 30 L0 60 L30 60" fill="none" stroke="#ff0080" strokeWidth="2" />
+        </svg>
+      </div>
+      <div className="fixed bottom-4 right-4 pointer-events-none z-0 opacity-30">
+        <svg width="60" height="60">
+          <path d="M30 60 L60 60 L60 30" fill="none" stroke="#00f2fe" strokeWidth="2" />
+        </svg>
+      </div>
+
       {/* Back button */}
       <button
         onClick={onBack}
@@ -1382,12 +1485,18 @@ export default function Projects({ onBack }: ProjectsProps) {
         {/* ===== NAME + PHOTO NEON HERO ===== */}
         <div className="flex flex-col items-center gap-6 mb-12">
           <AnimatedBlock direction="bottom">
-            <div className="relative group flex-shrink-0" style={{
-              animation: "floatPhoto 3s ease-in-out infinite",
-            }}>
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500" style={{
-                animation: "glowPulse 2s ease-in-out infinite",
-              }} />
+            <div
+              className="relative group flex-shrink-0"
+              style={{
+                animation: "floatPhoto 3s ease-in-out infinite",
+              }}
+            >
+              <div
+                className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  animation: "glowPulse 2s ease-in-out infinite",
+                }}
+              />
               <img src={profileImg} alt="Jyothsna" className="relative w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-[#0B0F19] shadow-2xl" />
             </div>
           </AnimatedBlock>
@@ -1412,13 +1521,16 @@ export default function Projects({ onBack }: ProjectsProps) {
               ))}
             </h1>
 
-            <p className="mt-3 text-sm md:text-base font-light tracking-widest uppercase" style={{
-              background: "linear-gradient(90deg, #00f2fe, #a855f7, #ff0080)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              opacity: 0.7,
-              animation: "slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both",
-            }}>
+            <p
+              className="mt-3 text-sm md:text-base font-light tracking-widest uppercase"
+              style={{
+                background: "linear-gradient(90deg, #00f2fe, #a855f7, #ff0080)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                opacity: 0.7,
+                animation: "slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both",
+              }}
+            >
               Software Engineer &bull; Distributed Systems &bull; Applied AI
             </p>
           </div>
@@ -1462,14 +1574,31 @@ export default function Projects({ onBack }: ProjectsProps) {
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(20px, 20px); }
           }
+          @keyframes particleFloat0 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -50px) scale(1.2); }
+            50% { transform: translate(-20px, -100px) scale(0.8); }
+            75% { transform: translate(40px, -50px) scale(1.1); }
+          }
+          @keyframes particleFloat1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-40px, -30px) scale(0.9); }
+            50% { transform: translate(20px, -80px) scale(1.3); }
+            75% { transform: translate(-30px, -40px) scale(1); }
+          }
+          @keyframes particleFloat2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -40px) scale(1.1); }
+            50% { transform: translate(-30px, -90px) scale(0.7); }
+            75% { transform: translate(20px, -60px) scale(1.2); }
+          }
         `}</style>
 
         {/* ===== ABOUT ===== */}
         <div className="max-w-4xl mx-auto text-center space-y-10 mb-16">
           <AnimatedBlock direction="bottom">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              About{" "}
-              <span className="text-purple-500">Me</span>
+              About <span className="text-purple-500">Me</span>
             </h1>
           </AnimatedBlock>
 
@@ -1478,8 +1607,6 @@ export default function Projects({ onBack }: ProjectsProps) {
               I am a software engineer passionate about building scalable backend systems and applied AI solutions. My experience spans Zomato, where I worked on high-throughput distributed systems and real-time services, HealthPlix, where I built reliable healthcare workflows and live dashboards, and AICTE, where I developed machine learning pipelines for predictive modeling. Alongside this, my Master's in Artificial Intelligence strengthened my work in LLMs, transformer models, and intelligent application design. I enjoy building systems that combine strong engineering fundamentals with practical intelligence, with a focus on scalability, reliability, and real-world impact.
             </p>
           </AnimatedBlock>
-
-          
         </div>
 
         <GlowDivider />
@@ -1491,7 +1618,6 @@ export default function Projects({ onBack }: ProjectsProps) {
           <AnimatedBlock direction="right" delay={0.1}>
             <p className="text-gray-300 text-lg leading-relaxed text-center max-w-4xl mx-auto mb-12">
               My technical foundation spans backend systems engineering, distributed architectures, cloud-native infrastructure, and applied artificial intelligence, enabling me to build scalable, intelligent, and production-ready platforms.
-
             </p>
           </AnimatedBlock>
 
@@ -1646,7 +1772,6 @@ export default function Projects({ onBack }: ProjectsProps) {
             <CertificateCarousel certs={certs} />
           </div>
         </section>
-
       </div>
     </div>
   );
