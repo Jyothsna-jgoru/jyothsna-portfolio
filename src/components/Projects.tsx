@@ -1168,15 +1168,6 @@ function ProjectCard({
 export default function Projects({ onBack }: ProjectsProps) {
   const experiences = [
     {
-      company: "BIZPRULES",
-      logo: bizprulesLogo,
-      title: "Software Engineer Intern",
-      duration: "Mar 2026 – Present",
-      location: "United States · Remote",
-      description:
-        "Currently building an enterprise AI platform for insurance and healthcare workflows that uses NLP, chatbot-assisted intake, fraud screening, and workflow automation to streamline case processing and improve operational visibility with analytics dashboards.",
-    },
-    {
       company: "Zomato",
       logo: zomatoLogo,
       title: "Software Engineer",
@@ -1600,7 +1591,7 @@ export default function Projects({ onBack }: ProjectsProps) {
 
           <AnimatedBlock direction="bottom" delay={0.15}>
             <p className="text-gray-300 leading-relaxed text-lg md:text-xl text-justify">
-              I am a software engineer passionate about building scalable backend systems and applied AI solutions. My experience includes BizPRules, where I am building enterprise AI and workflow automation solutions for insurance operations, and Zomato, where I developed distributed backend systems for real-time order tracking. Previously, I built reliable healthcare workflows and live dashboards at HealthPlix, and engineered machine learning pipelines for classification and predictive modeling at AICTE. Alongside this, my Master’s in Artificial Intelligence strengthened my work in LLMs, transformer models, and intelligent application design. I enjoy building systems that combine scalable engineering with practical AI for real-world use cases.
+              I am a software engineer passionate about building scalable backend systems and applied AI solutions. My experience includes Zomato, where I developed distributed backend systems for real-time order tracking. Previously, I built reliable healthcare workflows and live dashboards at HealthPlix, and engineered machine learning pipelines for classification and predictive modeling at AICTE. Alongside this, my Master’s in Artificial Intelligence strengthened my work in LLMs, transformer models, and intelligent application design. I enjoy building systems that combine scalable engineering with practical AI for real-world use cases.
             </p>
           </AnimatedBlock>
         </div>
