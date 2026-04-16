@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ===== EXPERIENCE LOGOS ===== */
-import bizprulesLogo from "../assets/bizprulesLogo.png";
 import zomatoLogo from "../assets/zomato.png";
 import healthplixLogo from "../assets/healthplix.png";
 import aicteLogo from "../assets/aicte.png";
