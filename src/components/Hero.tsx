@@ -188,7 +188,7 @@ export default function Hero({ onProjectsClick }: HeroProps) {
                   <div className="text-purple-400 text-lg md:text-xl">📍</div>
                   <div>
                     <p className="text-gray-500 text-xs">LOCATION</p>
-                    <p className="text-xs md:text-sm font-medium">Buffalo, New York</p>
+                    <p className="text-xs md:text-sm font-medium">United States</p>
                   </div>
                 </div>
               </div>
