@@ -93,7 +93,7 @@ export default function Hero({ onProjectsClick }: HeroProps) {
 
   const stats = [
     { value: "2+", label: "YEARS EXPERIENCE", description: "Shipped real-world systems across food-tech, health-tech, and applied AI, which I built and deployed under real production demands." },
-    { value: "7", label: "MAJOR PROJECTS", description: "Each project tackles a unique problem and was built to combine engineering depth with real-world impact." },
+    { value: "7+", label: "MAJOR PROJECTS", description: "Each project tackles a unique problem and was built to combine engineering depth with real-world impact." },
     { value: "2", label: "CLOUD PLATFORMS", description: "Hands-on experience building and deploying production systems on both AWS and Microsoft Azure cloud platforms." },
   ];
 
@@ -218,7 +218,7 @@ export default function Hero({ onProjectsClick }: HeroProps) {
             </h1>
 
             <p className="text-gray-400 mt-4 md:mt-6 text-sm md:text-base lg:text-lg">
-              Software engineer dedicated to building high-performance distributed systems, intelligent data pipelines, and production-ready applications.
+              Software Engineer dedicated to engineering scalable systems and intelligent products, from high-performance distributed platforms and data pipelines to production-ready AI/ML, generative AI, and agentic applications.
             </p>
 
             <div className="flex gap-6 sm:gap-8 md:gap-10 mt-8 md:mt-10 flex-wrap">
