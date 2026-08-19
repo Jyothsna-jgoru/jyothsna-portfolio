@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   coreStack,
-  experiences,
+  education,
   focusAreas,
   profile,
   socials,
@@ -81,7 +81,7 @@ function CardBlock({
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const current = experiences.find((role) => role.current) ?? experiences[0];
+  const degree = education[0];
 
   /* Cursor-following glow, written straight to CSS vars (no re-renders) */
   useEffect(() => {
@@ -230,47 +230,25 @@ export default function Hero() {
             <div className="hairline my-6" />
 
             <div className="space-y-5">
-              {/* current role */}
-              <CardBlock label="Currently">
-                <div className="flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3">
+              {/* highest qualification */}
+              <CardBlock label="Education">
+                <div className="flex items-start gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] p-1.5">
-                    {current.logo ? (
-                      <img
-                        src={current.logo}
-                        alt=""
-                        className="h-full w-full object-contain"
-                      />
-                    ) : (
-                      <span
-                        className="font-display text-[12px] font-bold"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, #c4b5fd, #7dd3fc)",
-                          WebkitBackgroundClip: "text",
-                          backgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                        }}
-                      >
-                        {current.monogram ?? current.company.charAt(0)}
-                      </span>
-                    )}
+                    <img
+                      src={degree.logo}
+                      alt=""
+                      className="h-full w-full object-contain"
+                    />
                   </span>
 
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[13px] font-semibold">
-                      {current.title}
+                    <span className="block text-[13px] font-semibold leading-snug">
+                      {degree.field}
                     </span>
-                    <span className="block truncate font-mono text-[10.5px] text-[color:var(--txt-faint)]">
-                      {current.company} · {current.period}
+                    <span className="mt-0.5 block font-mono text-[10.5px] leading-snug text-[color:var(--txt-faint)]">
+                      {degree.institution}
                     </span>
                   </span>
-
-                  {current.current && (
-                    <span className="relative flex h-2 w-2 shrink-0">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                    </span>
-                  )}
                 </div>
               </CardBlock>
 

@@ -12,6 +12,7 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ResumeModal from "./components/ResumeModal";
+import SectionRail from "./components/SectionRail";
 import SectionDivider from "./components/ui/SectionDivider";
 import { BackToTop, ScrollProgress } from "./components/ScrollControls";
 
@@ -23,6 +24,7 @@ export default function App() {
       <Background />
       <ScrollProgress />
       <Navbar onResumeClick={() => setShowResume(true)} />
+      <SectionRail />
 
       <main>
         <Hero />

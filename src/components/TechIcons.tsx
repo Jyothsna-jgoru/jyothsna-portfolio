@@ -38,6 +38,37 @@ export const customIconMap: Record<string, IconRenderer> = {
       <circle key="d" cx="40" cy="32" r="2.5" fill="#FF7043" />,
     ]),
 
+  Databricks: (c) =>
+    svg(c, [
+      <path key="a" d="M8 30l16-9 16 9-16 9-16-9z" fill="none" stroke="#FF3621" strokeWidth="2.2" strokeLinejoin="round" />,
+      <path key="b" d="M8 22l16-9 16 9" fill="none" stroke="#FF3621" strokeWidth="2.2" strokeLinejoin="round" opacity="0.6" />,
+      <path key="c" d="M8 38l16 9 16-9" fill="none" stroke="#FF3621" strokeWidth="2.2" strokeLinejoin="round" opacity="0.35" />,
+    ]),
+
+  "Delta Lake": (c) =>
+    svg(c, [
+      <path key="a" d="M24 8L42 38H6L24 8z" fill="none" stroke="#00ADD4" strokeWidth="2.4" strokeLinejoin="round" />,
+      <path key="b" d="M12 32h24" stroke="#00ADD4" strokeWidth="2" opacity="0.7" />,
+      <path key="c" d="M6 43c4-2.5 8-2.5 12 0s8 2.5 12 0 8-2.5 12 0" fill="none" stroke="#00ADD4" strokeWidth="2" strokeLinecap="round" opacity="0.55" />,
+    ]),
+
+  "OAuth 2.0": (c) =>
+    svg(c, [
+      <circle key="a" cx="24" cy="24" r="15" fill="none" stroke="#66BB6A" strokeWidth="2.4" strokeDasharray="60 14" />,
+      <rect key="b" x="17" y="21" width="14" height="12" rx="3" fill="none" stroke="#66BB6A" strokeWidth="2.2" />,
+      <path key="c" d="M20 21v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#66BB6A" strokeWidth="2.2" />,
+    ]),
+
+  JWT: (c) =>
+    svg(c, [
+      <rect key="a" x="6" y="16" width="36" height="16" rx="5" fill="none" stroke="#D63AFF" strokeWidth="2.2" />,
+      <line key="b" x1="18" y1="16" x2="18" y2="32" stroke="#D63AFF" strokeWidth="1.6" opacity="0.6" />,
+      <line key="c" x1="30" y1="16" x2="30" y2="32" stroke="#D63AFF" strokeWidth="1.6" opacity="0.6" />,
+      <circle key="d" cx="12" cy="24" r="2" fill="#D63AFF" />,
+      <circle key="e" cx="24" cy="24" r="2" fill="#D63AFF" opacity="0.75" />,
+      <circle key="f" cx="36" cy="24" r="2" fill="#D63AFF" opacity="0.5" />,
+    ]),
+
   SignalR: (c) =>
     svg(c, [
       <circle key="a" cx="14" cy="24" r="5" fill="#4FC3F7" />,

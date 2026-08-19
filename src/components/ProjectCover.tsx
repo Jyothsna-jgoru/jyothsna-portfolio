@@ -16,6 +16,8 @@ export type CoverVariant =
   | "collab"
   | "compute"
   | "storage"
+  | "lakehouse"
+  | "secure"
   | "pipeline"
   | "forecast"
   | "verify"
@@ -27,6 +29,8 @@ const PALETTE: Record<CoverVariant, [string, string]> = {
   collab: ["#a78bfa", "#22d3ee"],
   compute: ["#fb923c", "#38bdf8"],
   storage: ["#2dd4bf", "#38bdf8"],
+  lakehouse: ["#38bdf8", "#fbbf24"],
+  secure: ["#34d399", "#818cf8"],
   pipeline: ["#38bdf8", "#8b5cf6"],
   forecast: ["#34d399", "#38bdf8"],
   verify: ["#f472b6", "#a78bfa"],
@@ -175,6 +179,74 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
           <line x1="56" y1="158" x2="264" y2="158" stroke={a} strokeWidth="1.5" opacity="0.4" />
           <ellipse cx="160" cy="56" rx="46" ry="13" fill="none" stroke={b} strokeWidth="1.8" opacity="0.75" />
           <path d="M114 56v16c0 7 21 13 46 13s46-6 46-13V56" fill="none" stroke={b} strokeWidth="1.8" opacity="0.5" />
+        </g>
+      );
+
+    /* lakehouse: raw data refined down through medallion layers */
+    case "lakehouse":
+      return (
+        <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {[
+            { y: 44, tone: "#c2825a", w: 156 },
+            { y: 88, tone: "#cbd5e1", w: 132 },
+            { y: 132, tone: "#fbbf24", w: 108 },
+          ].map((layer, i) => {
+            const x = (320 - layer.w) / 2;
+            return (
+              <g key={i}>
+                <rect
+                  x={x}
+                  y={layer.y}
+                  width={layer.w}
+                  height="26"
+                  rx="7"
+                  fill="#0b0f1a"
+                  stroke={layer.tone}
+                  strokeWidth="2"
+                />
+                <line
+                  x1={x + 13}
+                  y1={layer.y + 13}
+                  x2={x + 13 + layer.w * 0.3}
+                  y2={layer.y + 13}
+                  stroke={layer.tone}
+                  strokeWidth="3.5"
+                  opacity="0.75"
+                />
+                <circle cx={x + layer.w - 15} cy={layer.y + 13} r="3.5" fill={layer.tone} opacity="0.8" />
+              </g>
+            );
+          })}
+
+          {[72, 116].map((y) => (
+            <path key={y} d={`M160 ${y}v10M155.5 ${y + 5.5}l4.5 5 4.5-5`} stroke={b} strokeWidth="1.8" />
+          ))}
+        </g>
+      );
+
+    /* secure: authenticated access in front of the ledger */
+    case "secure":
+      return (
+        <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {/* token exchange either side */}
+          <rect x="50" y="86" width="48" height="21" rx="6" stroke={b} strokeWidth="1.8" opacity="0.65" />
+          <rect x="222" y="86" width="48" height="21" rx="6" stroke={b} strokeWidth="1.8" opacity="0.65" />
+          <line x1="100" y1="96" x2="118" y2="96" stroke={b} strokeWidth="1.5" strokeDasharray="3 3" opacity="0.8" />
+          <line x1="202" y1="96" x2="220" y2="96" stroke={b} strokeWidth="1.5" strokeDasharray="3 3" opacity="0.8" />
+
+          {/* lock */}
+          <rect x="120" y="72" width="80" height="58" rx="13" fill="#0b0f1a" stroke={a} strokeWidth="2.4" />
+          <path d="M139 72V59a21 21 0 0 1 42 0v13" stroke={a} strokeWidth="2.4" />
+          <circle cx="160" cy="96" r="7" stroke={b} strokeWidth="2.4" />
+          <line x1="160" y1="103" x2="160" y2="114" stroke={b} strokeWidth="2.4" />
+
+          {/* ledger rows behind the lock */}
+          {[148, 163].map((y, i) => (
+            <g key={y}>
+              <line x1="92" y1={y} x2="178" y2={y} stroke={a} strokeWidth="3.5" opacity={0.4 - i * 0.14} />
+              <line x1="188" y1={y} x2="228" y2={y} stroke={b} strokeWidth="3.5" opacity={0.45 - i * 0.15} />
+            </g>
+          ))}
         </g>
       );
 

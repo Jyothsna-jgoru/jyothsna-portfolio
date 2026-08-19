@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { navSections, profile } from "../data/profile";
+import useActiveSection from "../hooks/useActiveSection";
 
 interface NavbarProps {
   onResumeClick: () => void;
 }
 
 export default function Navbar({ onResumeClick }: NavbarProps) {
-  const [active, setActive] = useState("home");
+  const active = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,27 +17,6 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  /* Scroll-spy: highlight whichever section is crossing the viewport middle */
-  useEffect(() => {
-    if (typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-
-    navSections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   /* Close the mobile sheet on Escape or when widening to desktop */
