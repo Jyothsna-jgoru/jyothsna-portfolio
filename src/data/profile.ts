@@ -59,11 +59,17 @@ export const profile = {
   ],
 };
 
-/** Headline disciplines shown on the hero card */
+/**
+ * Headline disciplines shown on the hero card.
+ *
+ * Kept broad on purpose — this is positioning, not a keyword list.
+ * "AI Engineering" is the umbrella for LLMs, RAG, agentic workflows,
+ * orchestration and evaluation; the specific tools live in Skills.
+ */
 export const focusAreas = [
   "Distributed Systems",
+  "AI Engineering",
   "Cloud Native",
-  "Applied AI",
   "Real-Time Data",
 ];
 
@@ -125,7 +131,8 @@ export const about = {
   paragraphs: [
     "I am a Software Engineer who builds backend systems that stay fast, correct, and observable once real traffic arrives. My work has spanned financial services, high-traffic consumer platforms, health-focused operational software, and applied machine learning — environments where latency budgets are tight, data consistency is not negotiable, and an outage is measured in minutes that matter.",
     "What interests me is the part of engineering that becomes invisible when it is done well: clean service boundaries, data models that still make sense a year later, caching that genuinely removes load instead of moving it, and instrumentation that turns a production incident into a short investigation rather than a long one. I would rather ship something maintainable than something merely clever.",
-    "Alongside that foundation I have built real depth in applied AI — large language models, retrieval-augmented generation, agentic workflows, transformer architectures, computer vision, and MLOps — and I take those ideas past the notebook into working pipelines. The intersection is where I do my best work: bringing production engineering discipline to AI systems so they are reliable, measurable, and actually useful to the people using them.",
+    "Alongside that foundation I work on the fast-moving edge of applied AI, and I follow it closely because the ground moves every few months. I build agentic systems with LangGraph, the OpenAI Agents SDK and the Model Context Protocol, where a planner routes work across real tools and answers are grounded in retrieved evidence rather than model memory. That sits next to retrieval-augmented generation over vector stores, parameter-efficient fine-tuning with LoRA and quantised inference, transformer architectures, computer vision, and MLOps.",
+    "What I care about is treating these as production systems rather than demos. The hard part is rarely the model call — it is the tool boundaries, the retries, the failure modes, and deciding what to measure before anything ships. So I build evaluation harnesses alongside the features and hold AI systems to the same bar as any other service: reliable, measurable, observable, and genuinely useful to the people on the other side of it.",
   ],
   focus: [
     {
@@ -137,8 +144,8 @@ export const about = {
       body: "Cloud-native infrastructure on AWS and Azure with CI/CD gates, automated rollback, structured logging, and end-to-end observability.",
     },
     {
-      title: "Applied AI",
-      body: "LLM fine-tuning, retrieval-augmented generation, agentic workflows, and computer vision taken from experiment to working pipeline.",
+      title: "Agentic & Applied AI",
+      body: "Planner-executor agents on LangGraph and MCP, RAG over vector stores, LoRA fine-tuning, and evaluation harnesses that prove the output holds up.",
     },
   ],
 };
@@ -182,6 +189,9 @@ export const skillGroups: SkillGroup[] = [
       { name: "Node.js", icon: "nodejs/nodejs-original" },
       { name: "FastAPI", icon: "fastapi/fastapi-original" },
       { name: "Spring Boot", icon: "spring/spring-original" },
+      { name: "Hibernate", icon: "hibernate/hibernate-original" },
+      { name: "OAuth 2.0" },
+      { name: "JWT" },
       { name: ".NET", icon: "dotnetcore/dotnetcore-original" },
       { name: "ASP.NET Core", icon: "dot-net/dot-net-original" },
       { name: "Blazor", icon: "blazor/blazor-original" },
@@ -205,7 +215,10 @@ export const skillGroups: SkillGroup[] = [
       { name: "Snowflake", icon: "snowflake/snowflake-original" },
       { name: "Apache Kafka" },
       { name: "Apache Spark", icon: "apachespark/apachespark-original" },
+      { name: "PySpark", icon: "apachespark/apachespark-original" },
       { name: "Hadoop", icon: "hadoop/hadoop-original" },
+      { name: "Databricks" },
+      { name: "Delta Lake" },
       { name: "SQL Optimization" },
       { name: "SQL Query-Plan Review" },
       { name: "Indexing" },
@@ -236,6 +249,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "PyTorch", icon: "pytorch/pytorch-original" },
       { name: "scikit-learn", icon: "scikitlearn/scikitlearn-original" },
       { name: "pandas", icon: "pandas/pandas-original" },
+      { name: "Amazon Bedrock" },
       { name: "LLM Fine-Tuning (LoRA)" },
       { name: "NF4 4-bit Quantization" },
       { name: "Mistral-7B" },
@@ -265,6 +279,10 @@ export const skillGroups: SkillGroup[] = [
     blurb: "Keeping systems healthy once they are live.",
     skills: [
       { name: "Observability" },
+      { name: "OpenTelemetry", icon: "opentelemetry/opentelemetry-original" },
+      { name: "Prometheus", icon: "prometheus/prometheus-original" },
+      { name: "Grafana", icon: "grafana/grafana-original" },
+      { name: "ELK Stack", icon: "elasticsearch/elasticsearch-original" },
       { name: "Structured Logging" },
       { name: "Monitoring & Alerting" },
       { name: "Incident Response & On-Call" },
@@ -327,13 +345,16 @@ export const experiences: Experience[] = [
     location: "United States",
     current: true,
     description:
-      "Building and maintaining production backend services in a large-scale financial services environment, working across API design, data flows, automated testing, and the release and monitoring practices that keep changes safe to ship.",
+      "Engineer high-concurrency transaction APIs in Java with Spring Boot and Hibernate alongside Node.js and TypeScript services, using Kafka event flows and WebSocket updates for real-time status delivery that cut end-to-end transaction-processing latency by 25%. Secure the transaction path with OAuth 2.0, JWT and RBAC under least-privilege IAM and PCI DSS-aligned controls, provision AWS infrastructure through Terraform, and instrument services with OpenTelemetry, Prometheus and Grafana to bring P95 API latency down by 20%. Also build agentic AI tooling: a controlled workflow that turns Jira tickets into planned, tested and peer-reviewed patches, and an Amazon Bedrock incident assistant with audited MCP access to approved telemetry, runbooks and deployment data.",
     tags: [
-      "Backend Services",
-      "API Design",
-      "Cloud Infrastructure",
-      "Automated Testing",
-      "CI/CD",
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Kafka",
+      "WebSockets",
+      "Terraform",
+      "Observability",
+      "Agentic AI",
     ],
   },
   {
@@ -674,6 +695,46 @@ const allProjects: Project[] = [
     ],
   },
   {
+    title: "Bank Management System",
+    category: "Systems & Backend",
+    cover: "secure",
+    summary:
+      "Secure banking services with OAuth 2.0 and JWT authentication, containerised and deployed on Kubernetes to scale request handling.",
+    description:
+      "Built a secure banking application with Spring Boot REST APIs and Hibernate persistence, using OAuth 2.0 and JWT for authentication and authorisation across the service boundary. Account and transaction operations sit behind authenticated endpoints, with the persistence layer mapped through Hibernate. The services were containerised with Docker and deployed on Kubernetes so request handling scales horizontally under load rather than depending on a single instance.",
+    skills: [
+      "Java",
+      "Spring Boot",
+      "Hibernate",
+      "OAuth 2.0",
+      "JWT",
+      "REST APIs",
+      "Docker",
+      "Kubernetes",
+    ],
+  },
+  {
+    title: "NYC Taxi Trip ETL Pipeline",
+    category: "Cloud & Data",
+    cover: "lakehouse",
+    summary:
+      "Bronze-Silver-Gold lakehouse on Databricks that turns raw trip records into Delta tables other teams can query with confidence.",
+    description:
+      "Built a Databricks ETL pipeline that transforms raw NYC taxi trip data into clean, analysis-ready tables using a Bronze-Silver-Gold lakehouse architecture. Raw trip records land in Bronze as-is, so the source of truth is never lost. Silver validates and cleans them for nulls, duplicates, and invalid entries, and Gold aggregates the result into daily trip and fare summaries. Every layer is persisted as Delta Lake tables on AWS S3, producing a reliable dataset ready for reporting and analysis.",
+    skills: [
+      "Databricks",
+      "PySpark",
+      "SQL",
+      "Delta Lake",
+      "AWS S3",
+      "Lakehouse Architecture",
+      "Medallion Architecture",
+      "Data Quality",
+      "ETL",
+    ],
+    highlights: [{ value: "3-layer", label: "Bronze → Silver → Gold" }],
+  },
+  {
     title: "Citi Bike Demand Forecasting Pipeline",
     category: "Cloud & Data",
     cover: "forecast",
@@ -729,8 +790,9 @@ const FEATURED_ORDER = [
   "Real-Time Collaborative Text Editor (CRDT-Based)",
   "TaskFlow Pro — Distributed Productivity Engine",
   "Log-Structured Distributed Key-Value Store",
+  "Bank Management System",
   "Distributed Workload Benchmarking with Spark & Hadoop",
-  "Citi Bike Demand Forecasting Pipeline",
+  "NYC Taxi Trip ETL Pipeline",
   "LLM Hallucination Detection & Reliability System",
   "AI-Based Helmet & License Plate Detection",
 ];
@@ -754,7 +816,7 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    institution: "University at Buffalo",
+    institution: "State University of New York at Buffalo",
     logo: ubLogo,
     field: "Master's in Engineering Science (Artificial Intelligence)",
     period: "Aug 2024 – Dec 2025",
