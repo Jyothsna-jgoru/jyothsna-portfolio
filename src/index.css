@@ -2,10 +2,241 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Outfit', sans-serif;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+
+@layer base {
+  :root {
+    --bg-0: #05070d;
+    --bg-1: #080b14;
+
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+
+    --txt: #e9edf7;
+    --txt-mute: #9aa4bb;
+    --txt-faint: #6b7489;
+
+    --accent: #8b5cf6;
+    --accent-soft: rgba(139, 92, 246, 0.14);
+    --aqua: #38bdf8;
+
+    --nav-h: 68px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 28px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg-0);
+    color: var(--txt);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Sora", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.022em;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-0);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232b41;
+    border: 3px solid var(--bg-0);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #33405f;
+  }
+
+  /* Respect users who prefer less motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ============================================================
+   COMPONENT CLASSES
+   ============================================================ */
+
+@layer components {
+  /* Page rhythm ------------------------------------------------ */
+
+  .shell {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .section {
+    @apply scroll-mt-28 py-20 md:py-28;
+  }
+
+  /* Surfaces --------------------------------------------------- */
+
+  .panel {
+    @apply relative rounded-2xl border border-white/[0.07] bg-white/[0.022] shadow-panel;
+  }
+
+  .panel-hover {
+    @apply transition-all duration-500 ease-smooth hover:-translate-y-1 hover:border-accent-500/[0.35] hover:bg-white/[0.04] hover:shadow-lift;
+  }
+
+  /* A hairline highlight along the top edge of a card */
+  .panel-sheen::before {
+    content: "";
+    @apply pointer-events-none absolute inset-x-6 top-0 h-px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+  }
+
+  /* Typography ------------------------------------------------- */
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-accent-300;
+  }
+
+  .lede {
+    @apply text-[15px] leading-[1.85] text-[color:var(--txt-mute)] md:text-base;
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, #ffffff 0%, #cfc6ff 45%, #8ad4fb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Buttons ---------------------------------------------------- */
+
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-xl px-6 py-3
+           text-sm font-semibold transition-all duration-300 ease-smooth
+           disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  .btn-primary {
+    @apply btn text-white;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.18) inset,
+      0 14px 30px -14px rgba(139, 92, 246, 0.9);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.22) inset,
+      0 20px 40px -14px rgba(139, 92, 246, 1);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/[0.12] bg-white/[0.03] text-[color:var(--txt)]
+           hover:-translate-y-0.5 hover:border-accent-500/[0.45] hover:bg-accent-500/[0.08];
+  }
+
+  .btn-icon {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10
+           bg-white/[0.03] text-[color:var(--txt-mute)] transition-all duration-300 ease-smooth
+           hover:-translate-y-0.5 hover:border-accent-500/50 hover:bg-accent-500/10 hover:text-white;
+  }
+
+  /* Chips ------------------------------------------------------ */
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03]
+           px-2.5 py-1 text-[11.5px] font-medium text-[color:var(--txt-mute)]
+           transition-colors duration-200;
+  }
+
+  .chip-accent {
+    @apply chip border-accent-500/25 bg-accent-500/[0.09] text-accent-200;
+  }
+
+  .chip-interactive {
+    @apply chip hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-accent-200;
+  }
+
+  /* Form fields ------------------------------------------------ */
+
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-ink-900/70 px-4 py-3 text-sm text-white
+           placeholder:text-[color:var(--txt-faint)]
+           transition-all duration-200
+           focus:border-accent-500/60 focus:bg-ink-900 focus:outline-none
+           focus:ring-4 focus:ring-accent-500/[0.12];
+  }
+
+  /* Dividers --------------------------------------------------- */
+
+  .hairline {
+    @apply h-px w-full;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Locks background scrolling while a modal / lightbox is open */
+body.overflow-locked {
+  overflow: hidden;
 }
