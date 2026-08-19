@@ -345,13 +345,12 @@ export const experiences: Experience[] = [
     location: "United States",
     current: true,
     description:
-      "Engineer high-concurrency transaction APIs in Java with Spring Boot and Hibernate alongside Node.js and TypeScript services, using Kafka event flows and WebSocket updates for real-time status delivery that cut end-to-end transaction-processing latency by 25%. Secure the transaction path with OAuth 2.0, JWT and RBAC under least-privilege IAM and PCI DSS-aligned controls, provision AWS infrastructure through Terraform, and instrument services with OpenTelemetry, Prometheus and Grafana to bring P95 API latency down by 20%. Also build agentic AI tooling: a controlled workflow that turns Jira tickets into planned, tested and peer-reviewed patches, and an Amazon Bedrock incident assistant with audited MCP access to approved telemetry, runbooks and deployment data.",
+      "Engineer high-concurrency transaction APIs in Java and Node.js, using Kafka event flows and WebSocket updates for real-time status delivery that cut transaction-processing latency by 25%. Secure them with OAuth 2.0, JWT and RBAC under PCI DSS-aligned controls, instrument services with OpenTelemetry and Grafana, and build agentic AI tooling on Amazon Bedrock for on-call incident diagnosis.",
     tags: [
       "Java",
       "Spring Boot",
       "Node.js",
       "Kafka",
-      "WebSockets",
       "Terraform",
       "Observability",
       "Agentic AI",
