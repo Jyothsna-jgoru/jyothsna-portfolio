@@ -18,7 +18,7 @@ export default function Experience() {
           {/* timeline rail */}
           <span
             aria-hidden="true"
-            className="absolute bottom-6 left-[7px] top-8 w-px bg-gradient-to-b from-accent-500/60 via-white/10 to-transparent"
+            className="absolute bottom-6 left-[7px] top-8 w-px bg-gradient-to-b from-accent-500/60 via-[color:var(--line-strong)] to-transparent"
           />
 
           <ol className="space-y-6">
@@ -33,8 +33,8 @@ export default function Experience() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-50" />
                   )}
                   <span
-                    className={`relative h-[15px] w-[15px] rounded-full border-2 bg-ink-950 ${
-                      item.current ? "border-accent-400" : "border-white/25"
+                    className={`relative h-[15px] w-[15px] rounded-full border-2 bg-app ${
+                      item.current ? "border-accent-400" : "border-line-strong"
                     }`}
                     style={
                       item.current
@@ -48,7 +48,7 @@ export default function Experience() {
                   <article className="panel panel-hover panel-sheen p-6 md:p-7">
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                       {/* logo, or a monogram tile when there is no logo file */}
-                      <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.04] p-2.5">
+                      <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-line bg-surface-2 p-2.5">
                         {item.logo ? (
                           <img
                             src={item.logo}
@@ -91,7 +91,7 @@ export default function Experience() {
                           </span>
                         </div>
 
-                        <p className="mt-1.5 text-sm font-semibold text-accent-300">
+                        <p className="mt-1.5 text-sm font-semibold text-accent">
                           {item.title}
                         </p>
 

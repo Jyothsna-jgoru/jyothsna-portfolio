@@ -66,7 +66,7 @@ export default function Certifications() {
                 className="panel panel-hover group h-full w-full overflow-hidden p-5 text-left"
                 aria-label={`View ${cert.title}`}
               >
-                <div className="flex h-36 items-center justify-center rounded-xl border border-white/[0.05] bg-ink-950/60 p-3">
+                <div className="flex h-36 items-center justify-center rounded-xl border border-line-soft bg-app-60 p-3">
                   <img
                     src={cert.img}
                     alt=""
@@ -74,7 +74,7 @@ export default function Certifications() {
                     className="max-h-full max-w-full object-contain transition-transform duration-500 ease-smooth group-hover:scale-[1.05]"
                   />
                 </div>
-                <p className="mt-4 text-[13.5px] font-semibold transition-colors duration-300 group-hover:text-accent-200">
+                <p className="mt-4 text-[13.5px] font-semibold transition-colors duration-300 group-hover:text-accent">
                   {cert.title}
                 </p>
                 <span className="mt-1 inline-flex items-center gap-1 text-[11px] text-[color:var(--txt-faint)]">
@@ -93,7 +93,7 @@ export default function Certifications() {
       {/* lightbox */}
       {isOpen && openIndex !== null && (
         <div
-          className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/90 px-4 py-10 backdrop-blur-sm animate-fadeIn"
+          className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-scrim px-4 py-10 backdrop-blur-sm animate-fadeIn"
           onClick={() => setOpenIndex(null)}
           role="dialog"
           aria-modal="true"
@@ -129,7 +129,7 @@ export default function Certifications() {
                 key={openIndex}
                 src={certifications[openIndex].img}
                 alt={certifications[openIndex].title}
-                className="max-h-[68vh] max-w-full rounded-xl border border-white/10 animate-popIn"
+                className="max-h-[68vh] max-w-full rounded-xl border border-line-strong animate-popIn"
               />
             </div>
 
@@ -149,7 +149,7 @@ export default function Certifications() {
                 className={`h-2 rounded-full transition-all duration-300 ${
                   i === openIndex
                     ? "w-6 bg-accent-500"
-                    : "w-2 bg-white/25 hover:bg-white/45"
+                    : "w-2 bg-[color:var(--txt-faint)] hover:bg-[color:var(--txt-mute)]"
                 }`}
               />
             ))}

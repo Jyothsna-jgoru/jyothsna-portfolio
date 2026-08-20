@@ -49,7 +49,7 @@ export default function Education() {
                     <h3 className="font-display text-lg font-bold leading-snug md:text-xl">
                       {item.field}
                     </h3>
-                    <p className="mt-1.5 text-[14px] font-semibold text-accent-300">
+                    <p className="mt-1.5 text-[14px] font-semibold text-accent">
                       {item.institution}
                     </p>
                     <p className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] text-[color:var(--txt-faint)]">

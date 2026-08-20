@@ -4,25 +4,166 @@
 
 /* ============================================================
    DESIGN TOKENS
+
+   Every colour the interface uses is declared twice: once for the
+   dark theme (the default, on :root) and once for light, applied
+   when <html data-theme="light">. Components reference the tokens
+   only, so switching themes never requires touching a component.
    ============================================================ */
 
 @layer base {
   :root {
-    --bg-0: #05070d;
-    --bg-1: #080b14;
+    color-scheme: dark;
 
+    --bg-0: #05070d;
+    --bg-raised: #0f1422;
+    --bg-sunken: #080b14;
+
+    --surface: rgba(255, 255, 255, 0.028);
+    --surface-2: rgba(255, 255, 255, 0.05);
+
+    --line-soft: rgba(255, 255, 255, 0.055);
     --line: rgba(255, 255, 255, 0.08);
-    --line-strong: rgba(255, 255, 255, 0.16);
+    --line-strong: rgba(255, 255, 255, 0.15);
 
     --txt: #e9edf7;
     --txt-mute: #9aa4bb;
-    --txt-faint: #6b7489;
+    /* #6b7489 measured 4.3:1 on the page base — under WCAG AA for the small
+       mono labels this drives. Lightened until it cleared 4.5:1. */
+    --txt-faint: #737c92;
 
     --accent: #8b5cf6;
-    --accent-soft: rgba(139, 92, 246, 0.14);
+    --accent-text: #c4b5fd;
+    --accent-chip-bg: rgba(139, 92, 246, 0.09);
+    --accent-chip-line: rgba(139, 92, 246, 0.25);
     --aqua: #38bdf8;
 
+    /* panel gradient ring */
+    --ring-from: rgba(139, 92, 246, 0.55);
+    --ring-mid-a: rgba(255, 255, 255, 0.1);
+    --ring-mid-b: rgba(255, 255, 255, 0.05);
+    --ring-to: rgba(56, 189, 248, 0.45);
+
+    /* headline gradient */
+    --grad-1: #ffffff;
+    --grad-2: #cfc6ff;
+    --grad-3: #8ad4fb;
+
+    /* project cover art interior */
+    --cover-bg: #0b0f1a;
+    --cover-base: #080b14;
+    --cover-grid: rgba(255, 255, 255, 0.05);
+    --cover-ink: #ffffff;
+
+    --shadow-panel: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+      0 18px 40px -18px rgba(0, 0, 0, 0.9);
+    --shadow-lift: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 28px 60px -24px rgba(0, 0, 0, 0.95);
+    --sheen: rgba(255, 255, 255, 0.22);
+
+    --scroll-thumb: #232b41;
+    --scroll-thumb-hover: #33405f;
+    --scrim: rgba(0, 0, 0, 0.85);
+
+    /* ambient background */
+    --wash-1: rgba(139, 92, 246, 0.2);
+    --wash-2: rgba(139, 92, 246, 0.07);
+    --wash-3: rgba(56, 189, 248, 0.08);
+    --wash-4: rgba(56, 189, 248, 0.2);
+    --field-violet: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.3) 0%,
+      rgba(139, 92, 246, 0.1) 42%,
+      transparent 70%
+    );
+    --field-sky: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.26) 0%,
+      rgba(56, 189, 248, 0.09) 42%,
+      transparent 70%
+    );
+    --vignette: radial-gradient(
+      70% 55% at 50% 45%,
+      rgba(5, 7, 13, 0.82) 0%,
+      rgba(5, 7, 13, 0.35) 55%,
+      transparent 100%
+    );
+
     --nav-h: 68px;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+
+    --bg-0: #f6f7fb;
+    --bg-raised: #ffffff;
+    --bg-sunken: #eef1f8;
+
+    --surface: rgba(15, 23, 42, 0.026);
+    --surface-2: rgba(15, 23, 42, 0.055);
+
+    --line-soft: rgba(15, 23, 42, 0.07);
+    --line: rgba(15, 23, 42, 0.11);
+    --line-strong: rgba(15, 23, 42, 0.2);
+
+    --txt: #0f172a;
+    --txt-mute: #4a5568;
+    --txt-faint: #5b6272;
+
+    --accent: #7c3aed;
+    --accent-text: #6d28d9;
+    --accent-chip-bg: rgba(124, 58, 237, 0.08);
+    --accent-chip-line: rgba(124, 58, 237, 0.22);
+    --aqua: #0284c7;
+
+    --ring-from: rgba(124, 58, 237, 0.45);
+    --ring-mid-a: rgba(15, 23, 42, 0.09);
+    --ring-mid-b: rgba(15, 23, 42, 0.05);
+    --ring-to: rgba(2, 132, 199, 0.4);
+
+    --grad-1: #1e1b4b;
+    --grad-2: #6d28d9;
+    --grad-3: #0369a1;
+
+    --cover-bg: #ffffff;
+    --cover-base: #f1f5fb;
+    --cover-grid: rgba(15, 23, 42, 0.06);
+    --cover-ink: #0f172a;
+
+    --shadow-panel: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
+      0 14px 34px -20px rgba(15, 23, 42, 0.4);
+    --shadow-lift: 0 1px 0 0 rgba(255, 255, 255, 1) inset,
+      0 24px 50px -22px rgba(15, 23, 42, 0.45);
+    --sheen: rgba(15, 23, 42, 0.14);
+
+    --scroll-thumb: #c3cad9;
+    --scroll-thumb-hover: #a8b1c4;
+    --scrim: rgba(15, 23, 42, 0.78);
+
+    /* Lighter and less saturated: the same opacities that read as a subtle
+       glow on black read as muddy colour cast on white. */
+    --wash-1: rgba(124, 58, 237, 0.09);
+    --wash-2: rgba(124, 58, 237, 0.035);
+    --wash-3: rgba(2, 132, 199, 0.04);
+    --wash-4: rgba(2, 132, 199, 0.1);
+    --field-violet: radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.14) 0%,
+      rgba(124, 58, 237, 0.05) 42%,
+      transparent 70%
+    );
+    --field-sky: radial-gradient(
+      circle,
+      rgba(2, 132, 199, 0.12) 0%,
+      rgba(2, 132, 199, 0.04) 42%,
+      transparent 70%
+    );
+    --vignette: radial-gradient(
+      70% 55% at 50% 45%,
+      rgba(246, 247, 251, 0.9) 0%,
+      rgba(246, 247, 251, 0.45) 55%,
+      transparent 100%
+    );
   }
 
   html {
@@ -39,6 +180,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   h1,
@@ -50,7 +192,7 @@
   }
 
   ::selection {
-    background: rgba(139, 92, 246, 0.35);
+    background: var(--accent);
     color: #fff;
   }
 
@@ -69,12 +211,12 @@
     background: var(--bg-0);
   }
   ::-webkit-scrollbar-thumb {
-    background: #232b41;
+    background: var(--scroll-thumb);
     border: 3px solid var(--bg-0);
     border-radius: 99px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #33405f;
+    background: var(--scroll-thumb-hover);
   }
 
   /* Respect users who prefer less motion */
@@ -111,7 +253,12 @@
   /* Surfaces --------------------------------------------------- */
 
   .panel {
-    @apply relative rounded-2xl border border-white/[0.07] bg-white/[0.022] shadow-panel;
+    @apply relative rounded-2xl border;
+    border-color: var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow-panel);
+    transition: background-color 0.4s ease, border-color 0.4s ease,
+      box-shadow 0.4s ease;
   }
 
   /* A real gradient ring rather than a flat 1px line. Drawn as a padded
@@ -125,10 +272,10 @@
     padding: 1px;
     background: linear-gradient(
       145deg,
-      rgba(139, 92, 246, 0.55) 0%,
-      rgba(255, 255, 255, 0.1) 28%,
-      rgba(255, 255, 255, 0.05) 62%,
-      rgba(56, 189, 248, 0.45) 100%
+      var(--ring-from) 0%,
+      var(--ring-mid-a) 28%,
+      var(--ring-mid-b) 62%,
+      var(--ring-to) 100%
     );
     -webkit-mask: linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -142,44 +289,53 @@
   }
 
   .panel-hover {
-    @apply transition-all duration-500 ease-smooth hover:-translate-y-1 hover:bg-white/[0.04] hover:shadow-lift;
+    @apply transition-all duration-500 ease-smooth hover:-translate-y-1;
   }
-
+  .panel-hover:hover {
+    background: var(--surface-2);
+    box-shadow: var(--shadow-lift);
+  }
   .panel-hover:hover::after {
     opacity: 1;
-    background: linear-gradient(
-      145deg,
-      rgba(139, 92, 246, 0.95) 0%,
-      rgba(167, 139, 250, 0.35) 30%,
-      rgba(125, 211, 252, 0.35) 66%,
-      rgba(56, 189, 248, 0.9) 100%
-    );
   }
 
   /* A hairline highlight along the top edge of a card */
   .panel-sheen::before {
     content: "";
     @apply pointer-events-none absolute inset-x-6 top-0 h-px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.22),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--sheen), transparent);
+    z-index: 2;
   }
 
   /* Typography ------------------------------------------------- */
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-accent-300;
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em];
+    color: var(--accent-text);
   }
 
   .lede {
-    @apply text-[15px] leading-[1.85] text-[color:var(--txt-mute)] md:text-base;
+    @apply text-[15px] leading-[1.85] md:text-base;
+    color: var(--txt-mute);
+  }
+
+  /* Justified body copy. Hyphenation is not optional here — justifying
+     without it stretches word spacing into visible rivers of white,
+     especially in the narrow measure of a phone. */
+  .lede-justified {
+    @apply lede;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 
   .text-gradient {
-    background: linear-gradient(100deg, #ffffff 0%, #cfc6ff 45%, #8ad4fb 100%);
+    background: linear-gradient(
+      100deg,
+      var(--grad-1) 0%,
+      var(--grad-2) 45%,
+      var(--grad-3) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -194,6 +350,7 @@
            disabled:cursor-not-allowed disabled:opacity-55;
   }
 
+  /* Always white text — it sits on the violet gradient in both themes */
   .btn-primary {
     @apply btn text-white;
     background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
@@ -210,67 +367,155 @@
   }
 
   .btn-ghost {
-    @apply btn border border-white/[0.12] bg-white/[0.03] text-[color:var(--txt)]
-           hover:-translate-y-0.5 hover:border-accent-500/[0.45] hover:bg-accent-500/[0.08];
+    @apply btn border hover:-translate-y-0.5;
+    border-color: var(--line-strong);
+    background: var(--surface);
+    color: var(--txt);
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent-chip-line);
+    background: var(--accent-chip-bg);
   }
 
   .btn-icon {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10
-           bg-white/[0.03] text-[color:var(--txt-mute)] transition-all duration-300 ease-smooth
-           hover:-translate-y-0.5 hover:border-accent-500/50 hover:bg-accent-500/10 hover:text-white;
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border
+           transition-all duration-300 ease-smooth hover:-translate-y-0.5;
+    border-color: var(--line);
+    background: var(--surface);
+    color: var(--txt-mute);
+  }
+  .btn-icon:hover {
+    border-color: var(--accent-chip-line);
+    background: var(--accent-chip-bg);
+    color: var(--txt);
   }
 
   /* Chips ------------------------------------------------------ */
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03]
-           px-2.5 py-1 text-[11.5px] font-medium text-[color:var(--txt-mute)]
-           transition-colors duration-200;
+    @apply inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1
+           text-[11.5px] font-medium transition-colors duration-200;
+    border-color: var(--line);
+    background: var(--surface);
+    color: var(--txt-mute);
   }
 
   .chip-accent {
-    @apply chip border-accent-500/25 bg-accent-500/[0.09] text-accent-200;
+    @apply chip;
+    border-color: var(--accent-chip-line);
+    background: var(--accent-chip-bg);
+    color: var(--accent-text);
   }
 
   .chip-interactive {
-    @apply chip hover:border-accent-500/40 hover:bg-accent-500/10 hover:text-accent-200;
+    @apply chip;
+  }
+  .chip-interactive:hover {
+    border-color: var(--accent-chip-line);
+    background: var(--accent-chip-bg);
+    color: var(--accent-text);
   }
 
   /* Form fields ------------------------------------------------ */
 
   .field {
-    @apply w-full rounded-xl border border-white/10 bg-ink-900/70 px-4 py-3 text-sm text-white
-           placeholder:text-[color:var(--txt-faint)]
-           transition-all duration-200
-           focus:border-accent-500/60 focus:bg-ink-900 focus:outline-none
-           focus:ring-4 focus:ring-accent-500/[0.12];
+    @apply w-full rounded-xl border px-4 py-3 text-sm
+           transition-all duration-200 focus:outline-none focus:ring-4;
+    border-color: var(--line);
+    background: var(--bg-sunken);
+    color: var(--txt);
+    --tw-ring-color: var(--accent-chip-bg);
+  }
+  .field::placeholder {
+    color: var(--txt-faint);
+  }
+  .field:focus {
+    border-color: var(--accent);
+    background: var(--bg-raised);
   }
 
   /* Dividers --------------------------------------------------- */
 
   .hairline {
     @apply h-px w-full;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.12),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
   }
 }
 
 @layer utilities {
-  .mask-fade-b {
-    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-  }
-
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Semantic colour utilities, so components never hard-code a theme */
+  .bg-app {
+    background-color: var(--bg-0);
+  }
+  .bg-raised {
+    background-color: var(--bg-raised);
+  }
+  .bg-surface {
+    background-color: var(--surface);
+  }
+  .bg-surface-2 {
+    background-color: var(--surface-2);
+  }
+  .border-line {
+    border-color: var(--line);
+  }
+  .border-line-soft {
+    border-color: var(--line-soft);
+  }
+  .border-line-strong {
+    border-color: var(--line-strong);
+  }
+  .text-primary {
+    color: var(--txt);
+  }
+  .text-muted {
+    color: var(--txt-mute);
+  }
+  .text-faint {
+    color: var(--txt-faint);
+  }
+  .text-accent {
+    color: var(--accent-text);
+  }
+
+  /* Translucent page-colour overlays (navbar, image plates, sticky sheets).
+     color-mix keeps one token per theme instead of a colour per opacity. */
+  .bg-app-60 {
+    background-color: color-mix(in srgb, var(--bg-0) 60%, transparent);
+  }
+  .bg-app-70 {
+    background-color: color-mix(in srgb, var(--bg-0) 70%, transparent);
+  }
+  .bg-app-80 {
+    background-color: color-mix(in srgb, var(--bg-0) 80%, transparent);
+  }
+  .bg-app-85 {
+    background-color: color-mix(in srgb, var(--bg-0) 85%, transparent);
+  }
+  .bg-app-95 {
+    background-color: color-mix(in srgb, var(--bg-0) 95%, transparent);
+  }
+  .bg-raised-95 {
+    background-color: color-mix(in srgb, var(--bg-raised) 95%, transparent);
+  }
+
+  /* Tooltips and popovers sit above the page, so they get the raised colour */
+  .bg-tooltip {
+    background-color: var(--bg-raised);
+  }
+
+  /* Dialog backdrop. Deliberately dark in both themes — a light scrim behind
+     a full-size certificate image washes the image out. */
+  .bg-scrim {
+    background-color: var(--scrim);
   }
 }
 

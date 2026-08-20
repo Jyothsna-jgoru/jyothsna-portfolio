@@ -51,7 +51,7 @@ export default function Contact() {
                 {rows.map((row) => {
                   const body = (
                     <>
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-accent-300 transition-colors duration-300 group-hover:border-accent-500/40 group-hover:text-accent-200">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line bg-surface text-accent transition-colors duration-300 group-hover:border-accent-500/40 group-hover:text-accent">
                         {row.icon}
                       </span>
                       <span className="min-w-0">
@@ -70,7 +70,7 @@ export default function Contact() {
                       {row.href ? (
                         <a
                           href={row.href}
-                          className="group -mx-2 flex items-center gap-3.5 rounded-xl px-2 py-2.5 transition-colors duration-300 hover:bg-white/[0.035]"
+                          className="group -mx-2 flex items-center gap-3.5 rounded-xl px-2 py-2.5 transition-colors duration-300 hover:bg-surface-2"
                         >
                           {body}
                         </a>
