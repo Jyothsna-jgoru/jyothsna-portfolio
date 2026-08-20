@@ -4,6 +4,7 @@
    ============================================================ */
 
 /* Experience logos */
+import capitalOneLogo from "../assets/capitalone.jpg";
 import zomatoLogo from "../assets/zomato.png";
 import healthplixLogo from "../assets/healthplix.png";
 import aicteLogo from "../assets/aicte.png";
@@ -129,10 +130,10 @@ export const stats = [
 
 export const about = {
   paragraphs: [
-    "I am a Software Engineer who builds backend systems that stay fast, correct, and observable once real traffic arrives. My work has spanned financial services, high-traffic consumer platforms, health-focused operational software, and applied machine learning — environments where latency budgets are tight, data consistency is not negotiable, and an outage is measured in minutes that matter.",
+    "I am a Software Engineer who builds backend systems that stay fast, correct, and observable once real traffic arrives. My work has spanned financial services, high-traffic consumer platforms, health-focused operational software, and applied machine learning. These are environments where latency budgets are tight, data consistency is not negotiable, and an outage is measured in minutes that matter.",
     "What interests me is the part of engineering that becomes invisible when it is done well: clean service boundaries, data models that still make sense a year later, caching that genuinely removes load instead of moving it, and instrumentation that turns a production incident into a short investigation rather than a long one. I would rather ship something maintainable than something merely clever.",
     "Alongside that foundation I work on the fast-moving edge of applied AI, and I follow it closely because the ground moves every few months. I build agentic systems with LangGraph, the OpenAI Agents SDK and the Model Context Protocol, where a planner routes work across real tools and answers are grounded in retrieved evidence rather than model memory. That sits next to retrieval-augmented generation over vector stores, parameter-efficient fine-tuning with LoRA and quantised inference, transformer architectures, computer vision, and MLOps.",
-    "What I care about is treating these as production systems rather than demos. The hard part is rarely the model call — it is the tool boundaries, the retries, the failure modes, and deciding what to measure before anything ships. So I build evaluation harnesses alongside the features and hold AI systems to the same bar as any other service: reliable, measurable, observable, and genuinely useful to the people on the other side of it.",
+    "What I care about is treating these as production systems rather than demos. The hard part is rarely the model call. It is the tool boundaries, the retries, the failure modes, and deciding what to measure before anything ships. So I build evaluation harnesses alongside the features and hold AI systems to the same bar as any other service: reliable, measurable, observable, and genuinely useful to the people on the other side of it.",
   ],
   focus: [
     {
@@ -338,6 +339,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     company: "Capital One",
+    logo: capitalOneLogo,
     monogram: "C1",
     title: "Software Engineer",
     period: "Jan 2026 – Present",

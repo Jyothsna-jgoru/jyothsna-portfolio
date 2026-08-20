@@ -21,6 +21,8 @@
 
     --surface: rgba(255, 255, 255, 0.028);
     --surface-2: rgba(255, 255, 255, 0.05);
+    --chip-bg: rgba(255, 255, 255, 0.03);
+    --btn-bg: rgba(255, 255, 255, 0.03);
 
     --line-soft: rgba(255, 255, 255, 0.055);
     --line: rgba(255, 255, 255, 0.08);
@@ -54,6 +56,10 @@
     --cover-base: #080b14;
     --cover-grid: rgba(255, 255, 255, 0.05);
     --cover-ink: #ffffff;
+    --watermark: rgba(255, 255, 255, 0.07);
+    /* company monogram tile ("C1") */
+    --mono-1: #c4b5fd;
+    --mono-2: #7dd3fc;
 
     --shadow-panel: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
       0 18px 40px -18px rgba(0, 0, 0, 0.9);
@@ -95,16 +101,21 @@
   :root[data-theme="light"] {
     color-scheme: light;
 
-    --bg-0: #f6f7fb;
+    /* The page is deliberately grey and the cards opaque white. Carrying the
+       dark theme's translucent-tint approach over to light leaves near-white
+       cards on a near-white page with no separation at all. */
+    --bg-0: #eceff7;
     --bg-raised: #ffffff;
-    --bg-sunken: #eef1f8;
+    --bg-sunken: #e5eaf4;
 
-    --surface: rgba(15, 23, 42, 0.026);
-    --surface-2: rgba(15, 23, 42, 0.055);
+    --surface: #ffffff;
+    --surface-2: #ffffff;
+    --chip-bg: #eef1f8;
+    --btn-bg: #ffffff;
 
-    --line-soft: rgba(15, 23, 42, 0.07);
-    --line: rgba(15, 23, 42, 0.11);
-    --line-strong: rgba(15, 23, 42, 0.2);
+    --line-soft: rgba(15, 23, 42, 0.06);
+    --line: rgba(15, 23, 42, 0.09);
+    --line-strong: rgba(15, 23, 42, 0.16);
 
     --txt: #0f172a;
     --txt-mute: #4a5568;
@@ -129,11 +140,14 @@
     --cover-base: #f1f5fb;
     --cover-grid: rgba(15, 23, 42, 0.06);
     --cover-ink: #0f172a;
+    --watermark: rgba(15, 23, 42, 0.1);
+    --mono-1: #6d28d9;
+    --mono-2: #0369a1;
 
-    --shadow-panel: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
-      0 14px 34px -20px rgba(15, 23, 42, 0.4);
-    --shadow-lift: 0 1px 0 0 rgba(255, 255, 255, 1) inset,
-      0 24px 50px -22px rgba(15, 23, 42, 0.45);
+    --shadow-panel: 0 1px 2px 0 rgba(15, 23, 42, 0.05),
+      0 10px 26px -14px rgba(15, 23, 42, 0.22);
+    --shadow-lift: 0 2px 6px 0 rgba(15, 23, 42, 0.08),
+      0 22px 44px -18px rgba(15, 23, 42, 0.3);
     --sheen: rgba(15, 23, 42, 0.14);
 
     --scroll-thumb: #c3cad9;
@@ -160,8 +174,8 @@
     );
     --vignette: radial-gradient(
       70% 55% at 50% 45%,
-      rgba(246, 247, 251, 0.9) 0%,
-      rgba(246, 247, 251, 0.45) 55%,
+      rgba(236, 239, 247, 0.9) 0%,
+      rgba(236, 239, 247, 0.45) 55%,
       transparent 100%
     );
   }
@@ -369,7 +383,7 @@
   .btn-ghost {
     @apply btn border hover:-translate-y-0.5;
     border-color: var(--line-strong);
-    background: var(--surface);
+    background: var(--btn-bg);
     color: var(--txt);
   }
   .btn-ghost:hover {
@@ -381,7 +395,7 @@
     @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border
            transition-all duration-300 ease-smooth hover:-translate-y-0.5;
     border-color: var(--line);
-    background: var(--surface);
+    background: var(--btn-bg);
     color: var(--txt-mute);
   }
   .btn-icon:hover {
@@ -396,7 +410,7 @@
     @apply inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1
            text-[11.5px] font-medium transition-colors duration-200;
     border-color: var(--line);
-    background: var(--surface);
+    background: var(--chip-bg);
     color: var(--txt-mute);
   }
 
@@ -443,6 +457,13 @@
 }
 
 @layer utilities {
+  /* The GitHub and LeetCode marks are solid black artwork. They need
+     inverting to show up on a dark page, but must be left alone on a
+     light one — inverting there paints them white on white. */
+  :root:not([data-theme="light"]) .icon-dark-art {
+    filter: invert(1);
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
