@@ -114,8 +114,46 @@
     @apply relative rounded-2xl border border-white/[0.07] bg-white/[0.022] shadow-panel;
   }
 
+  /* A real gradient ring rather than a flat 1px line. Drawn as a padded
+     background clipped to the border area with a mask, so it follows the
+     corner radius exactly and never tints the card interior. */
+  .panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.55) 0%,
+      rgba(255, 255, 255, 0.1) 28%,
+      rgba(255, 255, 255, 0.05) 62%,
+      rgba(56, 189, 248, 0.45) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0.75;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
   .panel-hover {
-    @apply transition-all duration-500 ease-smooth hover:-translate-y-1 hover:border-accent-500/[0.35] hover:bg-white/[0.04] hover:shadow-lift;
+    @apply transition-all duration-500 ease-smooth hover:-translate-y-1 hover:bg-white/[0.04] hover:shadow-lift;
+  }
+
+  .panel-hover:hover::after {
+    opacity: 1;
+    background: linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.95) 0%,
+      rgba(167, 139, 250, 0.35) 30%,
+      rgba(125, 211, 252, 0.35) 66%,
+      rgba(56, 189, 248, 0.9) 100%
+    );
   }
 
   /* A hairline highlight along the top edge of a card */
