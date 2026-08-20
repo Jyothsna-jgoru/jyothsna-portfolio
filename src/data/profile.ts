@@ -80,10 +80,10 @@ export const coreStack = [
   { name: "Java", icon: "java/java-original" },
   { name: "TypeScript", icon: "typescript/typescript-original" },
   { name: "AWS", icon: "amazonwebservices/amazonwebservices-plain-wordmark" },
+  { name: "Microsoft Azure", icon: "azure/azure-original" },
   { name: "Kubernetes", icon: "kubernetes/kubernetes-original" },
   { name: "Docker", icon: "docker/docker-original" },
   { name: "PostgreSQL", icon: "postgresql/postgresql-original" },
-  { name: "PyTorch", icon: "pytorch/pytorch-original" },
 ];
 
 export const socials = [
