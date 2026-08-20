@@ -69,7 +69,7 @@ export function BackToTop() {
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
       className={`fixed bottom-7 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full
-                  border border-white/10 text-white backdrop-blur-md
+                  border border-line-strong text-white backdrop-blur-md
                   transition-all duration-300 ease-smooth hover:-translate-y-1
                   ${visible ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
       style={{

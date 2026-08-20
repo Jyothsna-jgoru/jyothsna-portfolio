@@ -1,14 +1,18 @@
 /* ============================================================
    Ambient page background.
 
-   Two colours on black, and nothing else: violet (#8b5cf6) in the
-   upper left, sky (#38bdf8) in the lower right, both washing out
-   into the base before they meet. These are the same two accents
-   used by the buttons, chips and headings, so the page reads as
-   one palette rather than a backdrop plus a theme.
+   Two colours over the page base: violet in the upper left, sky in
+   the lower right, both washing out before they meet. These are the
+   same two accents the buttons, chips and headings use, so the page
+   reads as one palette rather than a backdrop plus a theme.
 
-   No grid, no particles — every layer is a painted gradient, so
-   the whole background costs a handful of DOM nodes.
+   Every layer reads its colour from a token, so the light theme gets
+   genuinely different values rather than an inverted dark one — the
+   washes lighten, the starfield disappears (stars on white read as
+   dirt), and the grain drops to almost nothing.
+
+   No grid, no particles: every layer is a painted gradient, so the
+   whole background costs a handful of DOM nodes.
    ============================================================ */
 
 const GRAIN =
@@ -29,8 +33,8 @@ export default function Background() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* 1. Black base */}
-      <div className="absolute inset-0 bg-ink-950" />
+      {/* 1. Page base */}
+      <div className="absolute inset-0 bg-app" />
 
       {/* 2. The two-colour diagonal wash */}
       <div
@@ -38,45 +42,36 @@ export default function Background() {
         style={{
           background:
             "linear-gradient(135deg," +
-            " rgba(139,92,246,0.20) 0%," +
-            " rgba(139,92,246,0.07) 26%," +
-            " rgba(5,7,13,0) 47%," +
-            " rgba(5,7,13,0) 55%," +
-            " rgba(56,189,248,0.08) 76%," +
-            " rgba(56,189,248,0.20) 100%)",
+            " var(--wash-1) 0%," +
+            " var(--wash-2) 26%," +
+            " transparent 47%," +
+            " transparent 55%," +
+            " var(--wash-3) 76%," +
+            " var(--wash-4) 100%)",
         }}
       />
 
       {/* 3. Violet field, upper left */}
       <div
         className="absolute -left-[18%] -top-[22%] h-[46rem] w-[46rem] rounded-full blur-[130px] animate-auroraA"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(139,92,246,0.30) 0%, rgba(139,92,246,0.10) 42%, transparent 70%)",
-        }}
+        style={{ background: "var(--field-violet)" }}
       />
 
       {/* 4. Sky field, lower right */}
       <div
         className="absolute -bottom-[24%] -right-[16%] h-[46rem] w-[46rem] rounded-full blur-[130px] animate-auroraB"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(56,189,248,0.26) 0%, rgba(56,189,248,0.09) 42%, transparent 70%)",
-        }}
+        style={{ background: "var(--field-sky)" }}
       />
 
-      {/* 5. Centre vignette — keeps long-form text on near-black */}
+      {/* 5. Centre vignette — keeps long-form text on a calm surface */}
       <div
         className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(70% 55% at 50% 45%, rgba(5,7,13,0.82) 0%, rgba(5,7,13,0.35) 55%, transparent 100%)",
-        }}
+        style={{ background: "var(--vignette)" }}
       />
 
-      {/* 6. Starfield */}
+      {/* 6. Starfield — dark theme only */}
       <div
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-60 [html[data-theme='light']_&]:hidden"
         style={{
           backgroundImage: STARS,
           backgroundSize: "620px 620px",
@@ -86,10 +81,9 @@ export default function Background() {
 
       {/* 7. Grain */}
       <div
-        className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.03] mix-blend-overlay [html[data-theme='light']_&]:opacity-[0.012]"
         style={{ backgroundImage: GRAIN }}
       />
-
     </div>
   );
 }
