@@ -28,8 +28,10 @@ jobs:
           node-version: 20
           cache: npm
 
+      # `npm install` rather than `npm ci`: the committed lockfile drifted from
+      # package.json before this workflow existed, and ci refuses to run on drift.
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
