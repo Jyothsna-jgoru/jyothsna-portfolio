@@ -47,8 +47,10 @@ export default function Experience() {
                 <Reveal direction="right" delay={i * 0.08}>
                   <article className="panel panel-hover panel-sheen p-6 md:p-7">
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                      {/* logo, or a monogram tile when there is no logo file */}
-                      <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-line bg-surface-2 p-2.5">
+                      {/* White plate, sized wide: every company mark here is a
+                          wordmark, and two of the three are dark artwork that
+                          would vanish on a dark tile. */}
+                      <span className="flex h-14 w-[126px] shrink-0 items-center justify-center rounded-2xl bg-white px-3 py-2 shadow-[0_10px_26px_-14px_rgba(0,0,0,0.75)]">
                         {item.logo ? (
                           <img
                             src={item.logo}
@@ -60,8 +62,9 @@ export default function Experience() {
                           <span
                             className="font-display text-lg font-bold"
                             style={{
+                              /* the plate is white in both themes */
                               background:
-                                "linear-gradient(135deg, #c4b5fd, #7dd3fc)",
+                                "linear-gradient(135deg, #6d28d9, #0369a1)",
                               WebkitBackgroundClip: "text",
                               backgroundClip: "text",
                               WebkitTextFillColor: "transparent",
