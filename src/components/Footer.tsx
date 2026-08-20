@@ -37,7 +37,7 @@ export default function Footer() {
           fontSize: "clamp(3.5rem, 15vw, 12rem)",
           transform: "translateY(28%)",
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 78%)",
+            "linear-gradient(180deg, var(--watermark), transparent 78%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           WebkitTextFillColor: "transparent",

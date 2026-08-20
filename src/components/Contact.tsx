@@ -102,7 +102,7 @@ export default function Contact() {
                     <img
                       src={social.icon}
                       alt=""
-                      className={`h-[18px] w-[18px] ${social.invert ? "invert" : ""}`}
+                      className={`h-[18px] w-[18px] ${social.invert ? "icon-dark-art" : ""}`}
                     />
                   </a>
                 ))}
