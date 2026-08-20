@@ -233,7 +233,7 @@ export default function Hero() {
               {/* highest qualification */}
               <CardBlock label="Education">
                 <div className="flex items-start gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] p-1.5">
+                  <span className="flex h-10 w-[76px] shrink-0 items-center justify-center rounded-lg bg-white px-2 py-1.5">
                     <img
                       src={degree.logo}
                       alt=""
