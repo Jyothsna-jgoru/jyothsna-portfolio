@@ -117,7 +117,7 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="group/hero relative flex min-h-screen items-center overflow-hidden pb-24 pt-32 md:pt-28"
+      className="group/hero relative flex min-h-screen items-center overflow-hidden pb-20 pt-32 md:pt-28 lg:pt-24"
     >
       {/* cursor glow */}
       <div
@@ -203,7 +203,7 @@ export default function Hero() {
 
         {/* ---------------- profile card ---------------- */}
         <Reveal direction="right" delay={0.16}>
-          <div className="panel panel-sheen mx-auto max-w-md p-6 md:p-7">
+          <div className="panel panel-sheen mx-auto max-w-md p-5 md:p-6">
             <div className="relative mx-auto aspect-square w-full max-w-[290px]">
               <div
                 className="absolute -inset-3 rounded-[1.6rem] opacity-70 blur-2xl"
@@ -220,16 +220,16 @@ export default function Hero() {
               />
             </div>
 
-            <div className="mt-6 text-center">
+            <div className="mt-4 text-center">
               <h2 className="font-display text-lg font-bold">{profile.name}</h2>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
                 {profile.role}
               </p>
             </div>
 
-            <div className="hairline my-6" />
+            <div className="hairline my-4" />
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {/* highest qualification */}
               <CardBlock label="Education">
                 <div className="flex items-start gap-3 rounded-xl border border-line bg-surface p-3">
@@ -285,7 +285,7 @@ export default function Hero() {
               </CardBlock>
             </div>
 
-            <div className="hairline my-6" />
+            <div className="hairline my-4" />
 
             <div className="flex justify-center gap-3">
               {socials.map((social) => (
