@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import useTheme from "./hooks/useTheme";
 import Background from "./components/Background";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -18,12 +19,17 @@ import { BackToTop, ScrollProgress } from "./components/ScrollControls";
 
 export default function App() {
   const [showResume, setShowResume] = useState(false);
+  const { theme, toggle } = useTheme();
 
   return (
     <>
       <Background />
       <ScrollProgress />
-      <Navbar onResumeClick={() => setShowResume(true)} />
+      <Navbar
+        onResumeClick={() => setShowResume(true)}
+        theme={theme}
+        onThemeToggle={toggle}
+      />
       <SectionRail />
 
       <main>

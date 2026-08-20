@@ -25,7 +25,7 @@ function SkillChip({ skill }: { skill: Skill }) {
         />
       ) : (
         <span
-          className={`${ICON_CLASS} grid place-items-center rounded-[4px] bg-accent-500/20 text-[8px] font-bold text-accent-200`}
+          className={`${ICON_CLASS} grid place-items-center rounded-[4px] bg-accent-500/20 text-[8px] font-bold text-accent`}
         >
           {skill.name.charAt(0)}
         </span>

@@ -55,10 +55,10 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
           ].map(([x, y], i) => (
             <g key={i}>
               <line x1="160" y1="100" x2={x} y2={y} stroke={b} strokeWidth="1.2" opacity="0.5" />
-              <circle cx={x} cy={y} r="9" fill="#0b0f1a" stroke={b} strokeWidth="1.8" />
+              <circle cx={x} cy={y} r="9" fill="var(--cover-bg)" stroke={b} strokeWidth="1.8" />
             </g>
           ))}
-          <rect x="143" y="83" width="34" height="34" rx="10" fill="#0b0f1a" stroke={a} strokeWidth="2" />
+          <rect x="143" y="83" width="34" height="34" rx="10" fill="var(--cover-bg)" stroke={a} strokeWidth="2" />
           <circle cx="160" cy="100" r="5" fill={a} />
         </g>
       );
@@ -97,7 +97,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
           <circle cx="42" cy="134" r="5" fill={a} />
 
           {/* shared document */}
-          <rect x="92" y="46" width="146" height="108" rx="11" fill="#0b0f1a" stroke={a} strokeWidth="2" />
+          <rect x="92" y="46" width="146" height="108" rx="11" fill="var(--cover-bg)" stroke={a} strokeWidth="2" />
           {[
             [72, 108],
             [90, 126],
@@ -110,7 +110,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
               y1={y}
               x2={110 + w}
               y2={y}
-              stroke="#ffffff"
+              stroke="var(--cover-ink)"
               strokeOpacity={0.26 - i * 0.04}
               strokeWidth="4"
             />
@@ -133,7 +133,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
       return (
         <g fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* driver */}
-          <rect x="40" y="82" width="36" height="36" rx="10" fill="#0b0f1a" stroke={a} strokeWidth="2" />
+          <rect x="40" y="82" width="36" height="36" rx="10" fill="var(--cover-bg)" stroke={a} strokeWidth="2" />
           <circle cx="58" cy="100" r="5" fill={a} />
 
           {/* partitions, each further along than the last */}
@@ -145,7 +145,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
                 strokeWidth="1.4"
                 opacity="0.5"
               />
-              <rect x="152" y={y} width="112" height="22" rx="6" fill="#0b0f1a" stroke={b} strokeWidth="1.6" />
+              <rect x="152" y={y} width="112" height="22" rx="6" fill="var(--cover-bg)" stroke={b} strokeWidth="1.6" />
               <line
                 x1="161"
                 y1={y + 11}
@@ -200,7 +200,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
                   width={layer.w}
                   height="26"
                   rx="7"
-                  fill="#0b0f1a"
+                  fill="var(--cover-bg)"
                   stroke={layer.tone}
                   strokeWidth="2"
                 />
@@ -235,7 +235,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
           <line x1="202" y1="96" x2="220" y2="96" stroke={b} strokeWidth="1.5" strokeDasharray="3 3" opacity="0.8" />
 
           {/* lock */}
-          <rect x="120" y="72" width="80" height="58" rx="13" fill="#0b0f1a" stroke={a} strokeWidth="2.4" />
+          <rect x="120" y="72" width="80" height="58" rx="13" fill="var(--cover-bg)" stroke={a} strokeWidth="2.4" />
           <path d="M139 72V59a21 21 0 0 1 42 0v13" stroke={a} strokeWidth="2.4" />
           <circle cx="160" cy="96" r="7" stroke={b} strokeWidth="2.4" />
           <line x1="160" y1="103" x2="160" y2="114" stroke={b} strokeWidth="2.4" />
@@ -262,7 +262,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
               width="40"
               height="40"
               rx="11"
-              fill="#0b0f1a"
+              fill="var(--cover-bg)"
               stroke={i === 1 ? b : a}
               strokeWidth="2"
             />
@@ -314,7 +314,7 @@ function Motif({ variant, a, b }: { variant: CoverVariant; a: string; b: string 
           <line x1="58" y1="124" x2="126" y2="124" stroke={a} strokeWidth="3" opacity="0.2" />
           <path
             d="M212 46l40 17v30c0 26-17 50-40 59-23-9-40-33-40-59V63l40-17z"
-            fill="#0b0f1a"
+            fill="var(--cover-bg)"
             stroke={b}
             strokeWidth="2.2"
           />
@@ -365,7 +365,7 @@ export default function ProjectCover({ variant }: { variant: CoverVariant }) {
       <defs>
         <linearGradient id={`${gid}-bg`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor={a} stopOpacity="0.22" />
-          <stop offset="55%" stopColor="#0b0f1a" stopOpacity="0.9" />
+          <stop offset="55%" stopColor="var(--cover-bg)" stopOpacity="0.9" />
           <stop offset="100%" stopColor={b} stopOpacity="0.2" />
         </linearGradient>
 
@@ -375,11 +375,11 @@ export default function ProjectCover({ variant }: { variant: CoverVariant }) {
         </radialGradient>
 
         <pattern id={`${gid}-grid`} width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0H0V20" fill="none" stroke="#ffffff" strokeOpacity="0.05" strokeWidth="1" />
+          <path d="M20 0H0V20" fill="none" stroke="var(--cover-grid)" strokeWidth="1" />
         </pattern>
       </defs>
 
-      <rect width="320" height="200" fill="#080b14" />
+      <rect width="320" height="200" fill="var(--cover-base)" />
       <rect width="320" height="200" fill={`url(#${gid}-bg)`} />
       <rect width="320" height="200" fill={`url(#${gid}-grid)`} />
       <rect width="320" height="200" fill={`url(#${gid}-glow)`} />
@@ -387,7 +387,7 @@ export default function ProjectCover({ variant }: { variant: CoverVariant }) {
       <Motif variant={variant} a={a} b={b} />
 
       {/* corner ticks */}
-      <g stroke="#ffffff" strokeOpacity="0.16" strokeWidth="1.5" fill="none">
+      <g stroke="var(--cover-ink)" strokeOpacity="0.16" strokeWidth="1.5" fill="none">
         <path d="M16 30V16h14" />
         <path d="M290 16h14v14" />
         <path d="M16 170v14h14" />

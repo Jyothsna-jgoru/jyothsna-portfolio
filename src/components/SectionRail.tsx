@@ -33,7 +33,7 @@ export default function SectionRail() {
                   className={`block rounded-full transition-all duration-500 ease-smooth ${
                     isActive
                       ? "h-6 w-[3px] bg-accent-400"
-                      : "h-[5px] w-[5px] bg-white/25 group-hover:scale-125 group-hover:bg-white/70"
+                      : "h-[5px] w-[5px] bg-[color:var(--txt-faint)] group-hover:scale-125 group-hover:bg-[color:var(--txt-mute)]"
                   }`}
                   style={
                     isActive
@@ -43,7 +43,7 @@ export default function SectionRail() {
                 />
 
                 {/* name, revealed on hover */}
-                <span className="pointer-events-none absolute right-full mr-3 translate-x-1 whitespace-nowrap rounded-lg border border-white/10 bg-ink-800/95 px-2.5 py-1 text-[11px] font-medium text-[color:var(--txt)] opacity-0 shadow-lift transition-all duration-300 ease-smooth group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="pointer-events-none absolute right-full mr-3 translate-x-1 whitespace-nowrap rounded-lg border border-line-strong bg-tooltip px-2.5 py-1 text-[11px] font-medium text-[color:var(--txt)] opacity-0 shadow-lift transition-all duration-300 ease-smooth group-hover:translate-x-0 group-hover:opacity-100">
                   {label}
                 </span>
               </a>

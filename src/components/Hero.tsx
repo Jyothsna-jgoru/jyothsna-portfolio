@@ -151,7 +151,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal direction="up" delay={0.14}>
-            <div className="mt-5 flex min-h-[1.75rem] items-center gap-3 font-mono text-[13px] text-accent-300 sm:text-sm">
+            <div className="mt-5 flex min-h-[1.75rem] items-center gap-3 font-mono text-[13px] text-accent sm:text-sm">
               <span className="h-px w-8 shrink-0 bg-gradient-to-r from-transparent to-accent-500/70" />
               <TypingText texts={profile.roles} />
             </div>
@@ -175,15 +175,15 @@ export default function Hero() {
 
           {/* stats */}
           <Reveal direction="up" delay={0.32}>
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.06]">
+            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-surface-2">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="group relative bg-ink-950/80 px-4 py-5 text-center transition-colors duration-300 hover:bg-accent-500/[0.06]"
+                  className="group relative bg-app-80 px-4 py-5 text-center transition-colors duration-300 hover:bg-accent-500/[0.06]"
                 >
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
-                    <span className="block font-display text-2xl font-bold text-white sm:text-3xl">
+                    <span className="block font-display text-2xl font-bold text-primary sm:text-3xl">
                       {stat.value}
                     </span>
                     <span className="mt-1 block text-[10.5px] uppercase tracking-[0.14em] text-[color:var(--txt-faint)] sm:text-[11px]">
@@ -192,7 +192,7 @@ export default function Hero() {
                   </dd>
 
                   {/* hover detail */}
-                  <span className="pointer-events-none absolute left-1/2 top-full z-30 mt-3 w-60 -translate-x-1/2 translate-y-2 rounded-xl border border-accent-500/25 bg-ink-800 p-3 text-left text-[11.5px] leading-relaxed text-[color:var(--txt-mute)] opacity-0 shadow-lift transition-all duration-300 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="pointer-events-none absolute left-1/2 top-full z-30 mt-3 w-60 -translate-x-1/2 translate-y-2 rounded-xl border border-accent-500/25 bg-tooltip p-3 text-left text-[11.5px] leading-relaxed text-[color:var(--txt-mute)] opacity-0 shadow-lift transition-all duration-300 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
                     {stat.description}
                   </span>
                 </div>
@@ -216,13 +216,13 @@ export default function Hero() {
                 src={profile.photo}
                 alt={profile.name}
                 loading="eager"
-                className="relative h-full w-full rounded-3xl border border-white/10 object-cover"
+                className="relative h-full w-full rounded-3xl border border-line-strong object-cover"
               />
             </div>
 
             <div className="mt-6 text-center">
               <h2 className="font-display text-lg font-bold">{profile.name}</h2>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent-300">
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
                 {profile.role}
               </p>
             </div>
@@ -232,7 +232,7 @@ export default function Hero() {
             <div className="space-y-5">
               {/* highest qualification */}
               <CardBlock label="Education">
-                <div className="flex items-start gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] p-3">
+                <div className="flex items-start gap-3 rounded-xl border border-line bg-surface p-3">
                   <span className="flex h-10 w-[76px] shrink-0 items-center justify-center rounded-lg bg-white px-2 py-1.5">
                     <img
                       src={degree.logo}
@@ -270,7 +270,7 @@ export default function Hero() {
                     <li key={tech.name}>
                       <span
                         title={tech.name}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.07] bg-white/[0.03] p-1.5 transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-accent-500/40 hover:bg-accent-500/[0.08]"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-line bg-surface p-1.5 transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-accent-500/40 hover:bg-accent-500/[0.08]"
                       >
                         <img
                           src={deviconUrl(tech.icon)}
@@ -313,10 +313,10 @@ export default function Hero() {
       <a
         href="#about"
         aria-label="Scroll to about"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[color:var(--txt-faint)] transition-colors duration-300 hover:text-white md:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[color:var(--txt-faint)] transition-colors duration-300 hover:text-primary md:flex"
       >
         <span className="font-mono text-[9.5px] uppercase tracking-[0.28em]">Scroll</span>
-        <span className="relative h-8 w-5 rounded-full border border-white/15">
+        <span className="relative h-8 w-5 rounded-full border border-line-strong">
           <span className="absolute left-1/2 top-1.5 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-accent-400 animate-scrollCue" />
         </span>
       </a>
