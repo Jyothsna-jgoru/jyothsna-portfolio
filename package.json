@@ -2,6 +2,8 @@
   "name": "jyothsna-portfolio",
   "version": "0.1.0",
   "private": true,
+  "//homepage": "Relative asset paths, so the same build works at a domain root (Vercel) and under a repo subpath (GitHub Pages project site).",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
