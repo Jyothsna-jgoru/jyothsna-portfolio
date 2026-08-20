@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import { navSections, profile } from "../data/profile";
 import useActiveSection from "../hooks/useActiveSection";
+import type { Theme } from "../hooks/useTheme";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
   onResumeClick: () => void;
+  theme: Theme;
+  onThemeToggle: () => void;
 }
 
-export default function Navbar({ onResumeClick }: NavbarProps) {
+export default function Navbar({
+  onResumeClick,
+  theme,
+  onThemeToggle,
+}: NavbarProps) {
   const active = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,7 +50,7 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-smooth ${
         scrolled || menuOpen
-          ? "border-b border-white/[0.07] bg-ink-950/80 backdrop-blur-xl"
+          ? "border-b border-line bg-app-80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -78,8 +86,8 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
                   aria-current={isActive ? "true" : undefined}
                   className={`relative block rounded-lg px-3 py-2 text-[13px] font-medium transition-colors duration-300 ${
                     isActive
-                      ? "text-white"
-                      : "text-[color:var(--txt-mute)] hover:text-white"
+                      ? "text-primary"
+                      : "text-[color:var(--txt-mute)] hover:text-primary"
                   }`}
                 >
                   {isActive && (
@@ -92,7 +100,9 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
           })}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
+          <ThemeToggle theme={theme} onToggle={onThemeToggle} />
+
           <button
             onClick={onResumeClick}
             className="btn-primary hidden !px-5 !py-2.5 text-[13px] sm:inline-flex"
@@ -135,7 +145,7 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
 
       {/* Mobile sheet */}
       {menuOpen && (
-        <div className="border-t border-white/[0.07] bg-ink-950/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-line bg-app-95 backdrop-blur-xl lg:hidden">
           <ul className="shell grid grid-cols-2 gap-2 py-5">
             {navSections.map(({ id, label }) => (
               <li key={id}>
@@ -144,8 +154,8 @@ export default function Navbar({ onResumeClick }: NavbarProps) {
                   onClick={() => setMenuOpen(false)}
                   className={`block rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
                     active === id
-                      ? "border-accent-500/30 bg-accent-500/[0.12] text-white"
-                      : "border-white/[0.07] bg-white/[0.02] text-[color:var(--txt-mute)]"
+                      ? "border-accent-500/30 bg-accent-500/[0.12] text-primary"
+                      : "border-line bg-surface text-[color:var(--txt-mute)]"
                   }`}
                 >
                   {label}

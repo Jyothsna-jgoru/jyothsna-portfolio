@@ -33,7 +33,7 @@ export default function ResumeModal({ onClose }: ResumeModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-black/85 px-4 py-10 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-scrim px-4 py-10 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -41,7 +41,7 @@ export default function ResumeModal({ onClose }: ResumeModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="panel panel-sheen my-auto w-full max-w-md !bg-ink-900/95 p-7 animate-popIn"
+        className="panel panel-sheen my-auto w-full max-w-md !bg-raised-95 p-7 animate-popIn"
       >
         <div className="mb-6 text-center">
           <span className="eyebrow justify-center w-full">Resume</span>
@@ -63,7 +63,7 @@ export default function ResumeModal({ onClose }: ResumeModalProps) {
 
         <button
           onClick={onClose}
-          className="mx-auto mt-4 block text-xs text-[color:var(--txt-faint)] transition-colors hover:text-white"
+          className="mx-auto mt-4 block text-xs text-[color:var(--txt-faint)] transition-colors hover:text-primary"
         >
           Close
         </button>

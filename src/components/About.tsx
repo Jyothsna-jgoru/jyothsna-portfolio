@@ -16,7 +16,7 @@ export default function About() {
         <div className="mx-auto max-w-3xl space-y-5">
           {about.paragraphs.map((paragraph, i) => (
             <Reveal key={i} direction="up" delay={i * 0.08}>
-              <p className="lede">{paragraph}</p>
+              <p className="lede-justified">{paragraph}</p>
             </Reveal>
           ))}
         </div>
@@ -25,7 +25,7 @@ export default function About() {
           {about.focus.map((item, i) => (
             <Reveal key={item.title} direction="up" delay={0.1 + i * 0.08}>
               <article className="panel panel-hover panel-sheen group h-full p-6">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-accent-500/25 bg-accent-500/[0.09] font-mono text-[11px] font-medium text-accent-300 transition-colors duration-300 group-hover:border-accent-500/50">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-accent-500/25 bg-accent-500/[0.09] font-mono text-[11px] font-medium text-accent transition-colors duration-300 group-hover:border-accent-500/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 font-display text-base font-semibold">

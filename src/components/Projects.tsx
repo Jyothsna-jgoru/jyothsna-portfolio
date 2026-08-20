@@ -28,7 +28,7 @@ function ProjectModal({
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-black/85 px-4 py-10 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-scrim px-4 py-10 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -36,9 +36,9 @@ function ProjectModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="panel panel-sheen w-full max-w-3xl overflow-hidden !bg-ink-900/95 animate-popIn"
+        className="panel panel-sheen w-full max-w-3xl overflow-hidden !bg-raised-95 animate-popIn"
       >
-        <div className="relative border-b border-white/[0.06] bg-ink-950/60 p-4">
+        <div className="relative border-b border-line-soft bg-app-60 p-4">
           {project.image ? (
             <img
               src={project.image}
@@ -54,7 +54,7 @@ function ProjectModal({
           <button
             onClick={onClose}
             aria-label="Close"
-            className="btn-icon absolute right-3 top-3 !bg-ink-950/80"
+            className="btn-icon absolute right-3 top-3 !bg-app-80"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M6 6l12 12" />
@@ -74,10 +74,10 @@ function ProjectModal({
           </h3>
 
           {project.highlights && (
-            <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.06] sm:max-w-md">
+            <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-surface-2 sm:max-w-md">
               {project.highlights.map((h) => (
-                <div key={h.label} className="bg-ink-900 px-4 py-3">
-                  <span className="block font-display text-lg font-bold text-white">
+                <div key={h.label} className="bg-raised px-4 py-3">
+                  <span className="block font-display text-lg font-bold text-primary">
                     {h.value}
                   </span>
                   <span className="mt-0.5 block text-[11px] text-[color:var(--txt-faint)]">
@@ -130,18 +130,18 @@ function ProjectCard({
         aria-label={`View details for ${project.title}`}
       >
         {/* cover art — the real diagram lives in the detail dialog */}
-        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden border-b border-white/[0.06]">
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden border-b border-line-soft">
           <div className="h-full w-full transition-transform duration-700 ease-smooth group-hover:scale-[1.05]">
             <ProjectCover variant={project.cover} />
           </div>
-          <span className="absolute left-3 top-3 rounded-lg border border-accent-500/25 bg-ink-950/85 px-2.5 py-1 text-[10.5px] font-medium text-accent-200 backdrop-blur-sm">
+          <span className="absolute left-3 top-3 rounded-lg border border-accent-500/25 bg-app-85 px-2.5 py-1 text-[10.5px] font-medium text-accent backdrop-blur-sm">
             {project.category}
           </span>
         </div>
 
         {/* body */}
         <div className="flex flex-1 flex-col p-5">
-          <h3 className="font-display text-[16.5px] font-semibold leading-snug transition-colors duration-300 group-hover:text-accent-200">
+          <h3 className="font-display text-[16.5px] font-semibold leading-snug transition-colors duration-300 group-hover:text-accent">
             {project.title}
           </h3>
 
@@ -153,7 +153,7 @@ function ProjectCard({
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
               {project.highlights.map((h) => (
                 <span key={h.label}>
-                  <span className="font-display text-[15px] font-bold text-white">
+                  <span className="font-display text-[15px] font-bold text-primary">
                     {h.value}
                   </span>
                   <span className="ml-1.5 text-[11px] text-[color:var(--txt-faint)]">
@@ -177,7 +177,7 @@ function ProjectCard({
             )}
           </ul>
 
-          <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-accent-300">
+          <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-accent">
             View details
             <svg
               width="14"
@@ -239,8 +239,8 @@ export default function Projects() {
                   aria-pressed={isActive}
                   className={`rounded-xl border px-4 py-2 text-[12.5px] font-medium transition-all duration-300 ease-smooth ${
                     isActive
-                      ? "border-accent-500/45 bg-accent-500/[0.14] text-white"
-                      : "border-white/[0.08] bg-white/[0.02] text-[color:var(--txt-mute)] hover:border-accent-500/30 hover:text-white"
+                      ? "border-accent-500/45 bg-accent-500/[0.14] text-primary"
+                      : "border-line bg-surface text-[color:var(--txt-mute)] hover:border-accent-500/30 hover:text-primary"
                   }`}
                 >
                   {category}
