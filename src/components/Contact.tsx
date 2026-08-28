@@ -34,7 +34,7 @@ export default function Contact() {
           eyebrow="Contact"
           title="Let's"
           accent="Connect"
-          description="Open to conversations about backend engineering, distributed systems, and applied AI roles. The fastest way to reach me is the form below."
+          description="Open to conversations about backend, full-stack, cloud and AI engineering roles. The fastest way to reach me is the form below."
         />
 
         <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">

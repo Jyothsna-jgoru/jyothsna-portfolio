@@ -21,7 +21,7 @@ export default function About() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {about.focus.map((item, i) => (
             <Reveal key={item.title} direction="up" delay={0.1 + i * 0.08}>
               <article className="panel panel-hover panel-sheen group h-full p-6">
