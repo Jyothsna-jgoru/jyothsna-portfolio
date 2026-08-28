@@ -68,8 +68,9 @@ export default function Footer() {
             </div>
 
             <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-[color:var(--txt-mute)]">
-              Backend systems, distributed architecture, and applied AI — built
-              to stay fast, correct, and observable in production.
+              Backend and full-stack systems, cloud-native infrastructure, and
+              applied AI, built to stay fast, correct, and observable in
+              production.
             </p>
 
             {/* A closing note rather than another copy of the social links */}
