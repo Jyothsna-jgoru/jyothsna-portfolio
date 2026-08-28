@@ -43,7 +43,7 @@ export const profile = {
   firstName: "Jyothsna Devi",
   lastName: "Goru",
   role: "Software Engineer",
-  tagline: "Software Engineer · Distributed Systems · Applied AI",
+  tagline: "Software Engineer · Backend · Full-Stack · Cloud · AI",
   location: "United States",
   base: "United States",
   email: "Jyothsnagoru28@gmail.com",
@@ -68,10 +68,10 @@ export const profile = {
  * orchestration and evaluation; the specific tools live in Skills.
  */
 export const focusAreas = [
-  "Distributed Systems",
-  "AI Engineering",
+  "Backend Systems",
+  "Full-Stack",
   "Cloud Native",
-  "Real-Time Data",
+  "AI Engineering",
 ];
 
 /** The stack shown as a logo strip on the hero card */
@@ -139,6 +139,10 @@ export const about = {
     {
       title: "Backend & Distributed Systems",
       body: "High-throughput microservices, event-driven communication, polyglot persistence, and caching strategies designed to hold up under production traffic.",
+    },
+    {
+      title: "Full-Stack Engineering",
+      body: "React and TypeScript operations consoles and dashboards sitting on top of the services behind them, built to make production state legible.",
     },
     {
       title: "Cloud & Reliability",
