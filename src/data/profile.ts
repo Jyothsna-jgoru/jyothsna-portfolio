@@ -825,7 +825,7 @@ export const education: Education[] = [
     logo: ubLogo,
     field: "Master's in Engineering Science (Artificial Intelligence)",
     period: "Aug 2024 – Dec 2025",
-    location: "Buffalo, NY",
+    location: "United States",
     coursework: [
       "Design and Analysis of Algorithms",
       "Data Models and Query Languages",

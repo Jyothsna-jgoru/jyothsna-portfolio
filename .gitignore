@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+# Resumes carry a phone number and a home city. This repo is public and git
+# history is permanent, so keep them out of it. Serve a redacted copy from
+# public/ if a download link is ever wanted.
+src/assets/*.pdf
