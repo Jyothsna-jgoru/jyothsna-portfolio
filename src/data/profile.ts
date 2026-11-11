@@ -399,7 +399,7 @@ export const experiences: Experience[] = [
     company: "AICTE",
     logo: aicteLogo,
     title: "AI / ML Engineer",
-    period: "Mar 2022 – May 2022",
+    period: "Jun 2021 – Aug 2021",
     length: "3 months",
     location: "India",
     description:
